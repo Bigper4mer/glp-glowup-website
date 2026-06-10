@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Button, ButtonLink } from "./ui/button";
+import { ButtonLink } from "./ui/button";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -38,7 +38,10 @@ export function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="font-serif text-2xl font-bold tracking-tight text-brand-dark">
+            <Link href="/" className={cn(
+              "font-serif text-2xl font-bold tracking-tight transition-colors duration-300",
+              isScrolled ? "text-brand-dark" : "text-white"
+            )}>
               GLP GlowUp
             </Link>
           </div>
@@ -64,7 +67,10 @@ export function Navigation() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-brand-dark focus:outline-none"
+              className={cn(
+                "p-2 focus:outline-none transition-colors duration-300",
+                isScrolled ? "text-brand-dark" : "text-white"
+              )}
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

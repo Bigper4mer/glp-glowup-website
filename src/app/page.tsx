@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <main className="flex-grow pt-20">
+      <main className="flex-grow">
         {/* HERO SECTION */}
         <section className="relative min-h-[100dvh] md:h-[90vh] md:min-h-[600px] overflow-hidden bg-brand-dark" style={{backgroundColor: '#2C2A29'}}>
 
