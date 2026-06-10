@@ -27,40 +27,29 @@ export default function Home() {
       <Navigation />
       <main className="flex-grow pt-20">
         {/* HERO SECTION */}
-        <section className="relative h-[100dvh] md:h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            {/* Mobile Image (9:16 ratio) */}
-            <div className="block md:hidden w-full h-full relative">
-              <Image
-                src="/images/hero-mobile.jpg"
-                alt="Professional coaching environment"
-                fill
-                className="object-cover object-center animate-slow-pan"
-                sizes="100vw"
-                priority
-              />
-            </div>
-            {/* Desktop Image (16:9 ratio) */}
-            <div className="hidden md:block w-full h-full relative">
-              <Image
-                src="/images/AU6V7.jpg"
-                alt="Professional coaching environment"
-                fill
-                className="object-cover object-center animate-slow-pan"
-                sizes="100vw"
-                priority
-              />
-            </div>
-            {/* Subtle gradient overlay to ensure text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/50 to-transparent mix-blend-multiply" />
-            <div className="absolute inset-0 bg-brand-light/5 backdrop-blur-[2px]" />
+        <section className="relative h-[100dvh] md:h-[90vh] min-h-[600px] flex flex-col md:flex-row md:items-center md:justify-center overflow-hidden bg-brand-dark md:bg-transparent">
+          
+          {/* Background/Image Layer */}
+          <div className="relative md:absolute inset-0 z-0 h-[40dvh] w-full md:h-full shrink-0">
+            <Image
+              src="/images/AU6V7.jpg"
+              alt="Professional coaching environment"
+              fill
+              className="object-cover object-center animate-slow-pan"
+              sizes="100vw"
+              priority
+            />
+            {/* Mobile: Fade to dark at the bottom edge | Desktop: standard bottom-up fade */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-dark/20 to-brand-dark md:bg-gradient-to-t md:from-brand-dark/90 md:via-brand-dark/50 md:to-transparent" />
+            <div className="absolute inset-0 hidden md:block bg-brand-light/5 backdrop-blur-[2px]" />
           </div>
 
+          {/* Content Layer */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-20"
+            className="relative z-10 flex flex-col justify-center text-center px-4 h-[60dvh] md:h-auto w-full max-w-4xl mx-auto mt-0 md:mt-20"
           >
             <motion.h1
               variants={fadeInUp}
