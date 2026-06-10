@@ -27,26 +27,40 @@ export default function Home() {
       <Navigation />
       <main className="flex-grow pt-20">
         {/* HERO SECTION */}
-        <section className="relative h-[100dvh] md:h-[90vh] min-h-[600px] flex flex-col md:justify-center overflow-hidden bg-brand-dark">
-          <div className="absolute top-0 left-0 right-0 h-[65vh] md:h-full z-0">
-            <Image
-              src="/images/AU6V7.jpg"
-              alt="Professional coaching environment"
-              fill
-              className="object-cover object-[center_20%] md:object-center animate-slow-pan"
-              sizes="100vw"
-              priority
-            />
-            {/* Subtle gradient overlay to ensure text readability and fade into background on mobile */}
-            <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/20 via-brand-dark/50 to-brand-dark md:bg-gradient-to-t md:from-brand-dark/80 md:via-brand-dark/40 md:to-transparent mix-blend-multiply md:mix-blend-normal" />
-            <div className="absolute inset-0 bg-brand-light/5 backdrop-blur-[1px] md:backdrop-blur-[2px]" />
+        <section className="relative h-[100dvh] md:h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            {/* Mobile Image (9:16 ratio) */}
+            <div className="block md:hidden w-full h-full relative">
+              <Image
+                src="/images/hero-mobile.jpg"
+                alt="Professional coaching environment"
+                fill
+                className="object-cover object-center animate-slow-pan"
+                sizes="100vw"
+                priority
+              />
+            </div>
+            {/* Desktop Image (16:9 ratio) */}
+            <div className="hidden md:block w-full h-full relative">
+              <Image
+                src="/images/AU6V7.jpg"
+                alt="Professional coaching environment"
+                fill
+                className="object-cover object-center animate-slow-pan"
+                sizes="100vw"
+                priority
+              />
+            </div>
+            {/* Subtle gradient overlay to ensure text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/50 to-transparent mix-blend-multiply" />
+            <div className="absolute inset-0 bg-brand-light/5 backdrop-blur-[2px]" />
           </div>
 
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-auto mb-20 md:my-auto"
+            className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-20"
           >
             <motion.h1
               variants={fadeInUp}
