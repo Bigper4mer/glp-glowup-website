@@ -27,22 +27,23 @@ export default function Home() {
       <Navigation />
       <main className="flex-grow pt-20">
         {/* HERO SECTION */}
-        <section className="relative min-h-[100dvh] md:h-[90vh] md:min-h-[600px] overflow-hidden bg-brand-dark">
+        <section className="relative min-h-[100dvh] md:h-[90vh] md:min-h-[600px] overflow-hidden bg-brand-dark" style={{backgroundColor: '#2C2A29'}}>
 
           {/* === SINGLE UNIFIED BACKGROUND IMAGE (absolute, both mobile + desktop) === */}
           <div className="absolute inset-0 z-0">
+            {/* Mobile: object-contain to show FULL image without cropping */}
             <Image
               src="/images/AU6V7.jpg"
               alt="GLP GlowUp transformation"
               fill
-              className="object-cover object-[center_30%] md:object-center animate-slow-pan"
+              className="object-contain md:object-cover object-[center_25%] md:object-center animate-slow-pan"
               sizes="100vw"
               priority
             />
 
-            {/* MOBILE gradient: image stays fully visible in top half, fades to solid dark below */}
+            {/* MOBILE gradient: fades bottom of image into dark content zone */}
             <div className="absolute inset-0 md:hidden"
-              style={{background: 'linear-gradient(to bottom, transparent 0%, transparent 35%, rgba(44,42,41,0.7) 55%, rgba(44,42,41,1) 70%)'}}
+              style={{background: 'linear-gradient(to bottom, rgba(44,42,41,0.15) 0%, transparent 15%, transparent 50%, rgba(44,42,41,0.6) 65%, rgba(44,42,41,1) 78%)'}}
             />
 
             {/* DESKTOP gradient: classic bottom-up fade */}
