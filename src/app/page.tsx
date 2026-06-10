@@ -27,45 +27,35 @@ export default function Home() {
       <Navigation />
       <main className="flex-grow pt-20">
         {/* HERO SECTION */}
-        <section className="relative min-h-[100dvh] md:h-[90vh] md:min-h-[600px] flex flex-col md:flex-row md:items-center md:justify-center overflow-hidden bg-brand-dark md:bg-transparent">
+        <section className="relative min-h-[100dvh] md:h-[90vh] md:min-h-[600px] overflow-hidden bg-brand-dark">
 
-          {/* === MOBILE: Stacked cinematic layout === */}
-          {/* Image Banner — top ~45% on mobile, hidden on desktop */}
-          <div className="relative block md:hidden w-full shrink-0" style={{height: '45dvh'}}>
+          {/* === SINGLE UNIFIED BACKGROUND IMAGE (absolute, both mobile + desktop) === */}
+          <div className="absolute inset-0 z-0">
             <Image
               src="/images/AU6V7.jpg"
               alt="GLP GlowUp transformation"
               fill
-              className="object-cover object-[center_30%] animate-slow-pan"
+              className="object-cover object-[center_30%] md:object-center animate-slow-pan"
               sizes="100vw"
               priority
             />
-            {/* Deep multi-stop fade into dark — extended tall so content overlap is fully covered */}
-            <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-brand-dark via-brand-dark/90 to-transparent" />
-            {/* Subtle side vignette */}
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/30 via-transparent to-brand-dark/30" />
-          </div>
 
-          {/* === DESKTOP: Full-screen background === */}
-          <div className="hidden md:block absolute inset-0 z-0">
-            <Image
-              src="/images/AU6V7.jpg"
-              alt="Professional coaching environment"
-              fill
-              className="object-cover object-center animate-slow-pan"
-              sizes="100vw"
-              priority
+            {/* MOBILE gradient: image stays fully visible in top half, fades to solid dark below */}
+            <div className="absolute inset-0 md:hidden"
+              style={{background: 'linear-gradient(to bottom, transparent 0%, transparent 35%, rgba(44,42,41,0.7) 55%, rgba(44,42,41,1) 70%)'}}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/50 to-transparent" />
-            <div className="absolute inset-0 bg-brand-light/5 backdrop-blur-[2px]" />
+
+            {/* DESKTOP gradient: classic bottom-up fade */}
+            <div className="absolute inset-0 hidden md:block bg-gradient-to-t from-brand-dark/90 via-brand-dark/50 to-transparent" />
+            <div className="absolute inset-0 hidden md:block bg-brand-light/5 backdrop-blur-[2px]" />
           </div>
 
-          {/* Content Layer — pulled up with -mt-20 on mobile to overlap the gradient edge of the image */}
+          {/* === CONTENT: anchored to bottom on mobile, centered on desktop === */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="relative z-10 flex flex-col justify-center items-center text-center px-6 -mt-20 md:mt-20 pt-0 pb-10 md:pb-0 flex-1 md:flex-none w-full max-w-4xl mx-auto"
+            className="relative z-10 flex flex-col text-center px-6 pb-12 pt-[55dvh] md:pt-0 md:h-full md:items-center md:justify-center max-w-4xl mx-auto"
           >
             <motion.h1
               variants={fadeInUp}
@@ -80,7 +70,7 @@ export default function Home() {
             >
               A premium GLP-1 transformation experience.
             </motion.p>
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3 justify-center w-full max-w-sm md:max-w-none">
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3 justify-center w-full max-w-sm md:max-w-none mx-auto">
               <ButtonLink href="mailto:drroccogervasi@gmail.com" size="lg">Start Your Transformation</ButtonLink>
               <ButtonLink href="#programs" size="lg" variant="secondary" className="bg-white/10 text-white border-white/50 hover:bg-white/20">
                 Explore the Program
