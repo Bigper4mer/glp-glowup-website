@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { Navigation } from "@/components/navigation";
-import { Button } from "@/components/ui/button";
+import { Button, ButtonLink } from "@/components/ui/button";
 import { FeatureCard } from "@/components/ui/feature-card";
 import { Accordion } from "@/components/ui/accordion";
 
@@ -61,10 +61,10 @@ export default function Home() {
               A premium GLP-1 transformation experience.
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg">Start Your Transformation</Button>
-              <Button size="lg" variant="secondary" className="bg-white/10 text-white border-white/50 hover:bg-white/20">
+              <ButtonLink href="mailto:drroccogervasi@gmail.com" size="lg">Start Your Transformation</ButtonLink>
+              <ButtonLink href="#programs" size="lg" variant="secondary" className="bg-white/10 text-white border-white/50 hover:bg-white/20">
                 Explore the Program
-              </Button>
+              </ButtonLink>
             </motion.div>
           </motion.div>
         </section>
@@ -232,7 +232,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full" variant="secondary">Select Foundation</Button>
+                <ButtonLink href="mailto:drroccogervasi@gmail.com" className="w-full" variant="secondary">Select Foundation</ButtonLink>
               </div>
 
               {/* Performance */}
@@ -260,7 +260,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full">Select Performance</Button>
+                <ButtonLink href="mailto:drroccogervasi@gmail.com" className="w-full">Select Performance</ButtonLink>
               </div>
 
               {/* Concierge */}
@@ -286,7 +286,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full" variant="secondary">Select Concierge</Button>
+                <ButtonLink href="mailto:drroccogervasi@gmail.com" className="w-full" variant="secondary">Select Concierge</ButtonLink>
               </div>
             </div>
           </div>
@@ -347,17 +347,17 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-6">Contact</h4>
               <p className="text-white/60 mb-2">drroccogervasi@gmail.com</p>
-              <Button size="sm" className="mt-4 bg-white/10 hover:bg-white/20 text-white border-none">
+              <ButtonLink href="mailto:drroccogervasi@gmail.com" size="sm" className="mt-4 bg-white/10 hover:bg-white/20 text-white border-none">
                 Reach Out
-              </Button>
+              </ButtonLink>
             </div>
           </div>
           
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-white/40">
             <p>&copy; {new Date().getFullYear()} GLP GlowUp. All rights reserved.</p>
             <div className="mt-4 md:mt-0 space-x-6">
-              <a href="#" className="hover:text-white">Privacy Policy</a>
-              <a href="#" className="hover:text-white">Terms of Service</a>
+              {/* <a href="#" className="hover:text-white">Privacy Policy</a>
+              <a href="#" className="hover:text-white">Terms of Service</a> */}
               <a href="#" className="hover:text-white">Medical Disclaimer</a>
             </div>
           </div>

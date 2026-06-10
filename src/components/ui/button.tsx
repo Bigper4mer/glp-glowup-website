@@ -16,7 +16,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variants = {
       primary:
-        "bg-gradient-to-r from-brand-accent to-[#E8A29A] text-white shadow-md hover:shadow-lg hover:shadow-brand-accent/20",
+        "bg-gradient-to-r from-brand-accent to-[#E8A29A] text-white shadow-md hover:shadow-lg hover:shadow-brand-accent/20 animate-pulse-glow",
       secondary:
         "bg-transparent border-2 border-brand-accent text-brand-dark hover:bg-brand-accent/10",
     };
@@ -39,3 +39,39 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 Button.displayName = "Button";
+
+interface ButtonLinkProps extends HTMLMotionProps<"a"> {
+  variant?: "primary" | "secondary";
+  size?: "sm" | "md" | "lg";
+}
+
+export const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
+  ({ className, variant = "primary", size = "md", ...props }, ref) => {
+    const baseStyles =
+      "inline-flex items-center justify-center rounded-full font-medium transition-all focus:outline-none disabled:opacity-50 disabled:pointer-events-none";
+
+    const variants = {
+      primary:
+        "bg-gradient-to-r from-brand-accent to-[#E8A29A] text-white shadow-md hover:shadow-lg hover:shadow-brand-accent/20",
+      secondary:
+        "bg-transparent border-2 border-brand-accent text-brand-dark hover:bg-brand-accent/10",
+    };
+
+    const sizes = {
+      sm: "h-9 px-4 text-sm",
+      md: "h-11 px-8 text-base",
+      lg: "h-14 px-10 text-lg",
+    };
+
+    return (
+      <motion.a
+        ref={ref}
+        whileHover={{ y: -2 }}
+        whileTap={{ scale: 0.98 }}
+        className={cn(baseStyles, variants[variant], sizes[size], className)}
+        {...props}
+      />
+    );
+  }
+);
+ButtonLink.displayName = "ButtonLink";

@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button, ButtonLink } from "./ui/button";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -57,7 +57,7 @@ export function Navigation() {
                 {link.name}
               </Link>
             ))}
-            <Button size="sm">Book a Consult</Button>
+            <ButtonLink href="mailto:drroccogervasi@gmail.com" size="sm">Book a Consult</ButtonLink>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -92,7 +92,7 @@ export function Navigation() {
               </Link>
             ))}
             <div className="pt-4">
-              <Button className="w-full">Book a Consult</Button>
+              <ButtonLink href="mailto:drroccogervasi@gmail.com" className="w-full">Book a Consult</ButtonLink>
             </div>
           </div>
         </motion.div>
