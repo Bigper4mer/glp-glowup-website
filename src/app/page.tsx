@@ -40,8 +40,8 @@ export default function Home() {
               sizes="100vw"
               priority
             />
-            {/* Deep multi-stop fade into dark — no harsh line */}
-            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent" />
+            {/* Deep multi-stop fade into dark — extended tall so content overlap is fully covered */}
+            <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-brand-dark via-brand-dark/90 to-transparent" />
             {/* Subtle side vignette */}
             <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/30 via-transparent to-brand-dark/30" />
           </div>
@@ -60,12 +60,12 @@ export default function Home() {
             <div className="absolute inset-0 bg-brand-light/5 backdrop-blur-[2px]" />
           </div>
 
-          {/* Content Layer — mobile: fills remaining space; desktop: centered overlay */}
+          {/* Content Layer — pulled up with -mt-20 on mobile to overlap the gradient edge of the image */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="relative z-10 flex flex-col justify-center items-center text-center px-6 pt-6 pb-10 md:pb-0 flex-1 md:flex-none w-full max-w-4xl mx-auto md:mt-20"
+            className="relative z-10 flex flex-col justify-center items-center text-center px-6 -mt-20 md:mt-20 pt-0 pb-10 md:pb-0 flex-1 md:flex-none w-full max-w-4xl mx-auto"
           >
             <motion.h1
               variants={fadeInUp}
