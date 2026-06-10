@@ -147,25 +147,29 @@ export default function Home() {
               <FeatureCard
                 title="Structured Exercise Plans"
                 description="Customized movement and training guidance that respects your body's current capabilities while pushing you towards your goals safely."
+                extendedDescription="Every body is different, and GLP-1 medications change how your body responds to strain. We design a 3-phase movement protocol that transitions you from foundational mobility and joint preparation into progressive resistance training. This ensures you build functional muscle without risking injury or burning out your central nervous system."
                 imageSrc="/images/AU6V7.jpg"
                 imageAlt="Exercise Planning"
               />
               <FeatureCard
                 title="Weekly Accountability"
                 description="Consistent check-ins and progress tracking to ensure you never feel lost or unsupported during your transformation."
+                extendedDescription="Transformation isn't a straight line. With weekly check-ins, we monitor your subjective biofeedback (energy, sleep, digestion) alongside objective metrics (strength progression, body composition). This allows us to make micro-adjustments to your program before you hit plateaus, ensuring continuous progress."
                 imageSrc="/images/Pic1.png"
                 imageAlt="Accountability"
               />
               <FeatureCard
                 title="Tailored Support"
                 description="Guidance shaped around your body, limitations, and lifestyle. We adapt the plan to fit your life, not the other way around."
-                imageSrc="/images/Professional headshots with warm expressions.png"
+                extendedDescription="Life happens. Travel, busy work weeks, and unexpected stress can derail standard programs. Our support system adapts to your reality. We provide flexible nutrition frameworks, 'minimum viable workout' options for hectic days, and direct communication to help you navigate real-world challenges without feeling like you've failed."
+                imageSrc="/images/tailored_support.png"
                 imageAlt="Tailored Support"
               />
               <FeatureCard
                 title="Real-World Systems"
                 description="Practical strategies that fit into daily life, building sustainable habits that outlast the initial weight loss phase."
-                imageSrc="/images/AU6V7.jpg"
+                extendedDescription="Motivation fades; systems endure. We focus on building automated habits that require low willpower. From advanced meal-prep shortcuts to optimizing your environment for sleep and recovery, we equip you with a toolkit that ensures your results are sustainable long after the initial weight loss phase."
+                imageSrc="/images/real_world_systems.png"
                 imageAlt="Real-World Systems"
               />
             </div>
