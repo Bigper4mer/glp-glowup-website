@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { Navigation } from "@/components/navigation";
-import { Button, ButtonLink } from "@/components/ui/button";
+import { ButtonLink } from "@/components/ui/button";
 import { FeatureCard } from "@/components/ui/feature-card";
 import { Accordion } from "@/components/ui/accordion";
 
@@ -27,25 +27,26 @@ export default function Home() {
       <Navigation />
       <main className="flex-grow pt-20">
         {/* HERO SECTION */}
-        <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
+        <section className="relative h-[100dvh] md:h-[90vh] min-h-[600px] flex flex-col md:justify-center overflow-hidden bg-brand-dark">
+          <div className="absolute top-0 left-0 right-0 h-[65vh] md:h-full z-0">
             <Image
               src="/images/AU6V7.jpg"
               alt="Professional coaching environment"
               fill
-              className="object-cover object-center"
+              className="object-cover object-[center_20%] md:object-center animate-slow-pan"
+              sizes="100vw"
               priority
             />
-            {/* Subtle gradient overlay to ensure text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/40 to-transparent mix-blend-multiply" />
-            <div className="absolute inset-0 bg-brand-light/10 backdrop-blur-[2px]" />
+            {/* Subtle gradient overlay to ensure text readability and fade into background on mobile */}
+            <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/20 via-brand-dark/50 to-brand-dark md:bg-gradient-to-t md:from-brand-dark/80 md:via-brand-dark/40 md:to-transparent mix-blend-multiply md:mix-blend-normal" />
+            <div className="absolute inset-0 bg-brand-light/5 backdrop-blur-[1px] md:backdrop-blur-[2px]" />
           </div>
 
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-20"
+            className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-auto mb-20 md:my-auto"
           >
             <motion.h1
               variants={fadeInUp}
@@ -110,7 +111,7 @@ export default function Home() {
                     When muscle is lost, metabolism slows. Strength declines. Confidence fades. And weight regain becomes more likely. That is where most programs stop.
                   </p>
                   <p className="font-semibold text-brand-dark text-xl">
-                    We don't.
+                    We don&apos;t.
                   </p>
                   <p>
                     Our Premium GLP-1 Transformation Experience combines research-based strategic strength training, personalized nutrition guidance, and ongoing accountability to help you lose fat while protecting the muscle that drives your metabolism.
