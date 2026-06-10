@@ -3,10 +3,12 @@
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
+import { toast } from "sonner";
 import { Navigation } from "@/components/navigation";
 import { ButtonLink } from "@/components/ui/button";
 import { FeatureCard } from "@/components/ui/feature-card";
 import { Accordion } from "@/components/ui/accordion";
+import { StatsCounter } from "@/components/ui/stats-counter";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -41,6 +43,17 @@ export default function Home() {
               priority
             />
 
+            {/* ✨ Sparkle particles */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              <span className="sparkle-dot" style={{top:'15%',left:'12%',animation:'var(--animate-sparkle-1)'}} />
+              <span className="sparkle-dot" style={{top:'25%',left:'72%',animation:'var(--animate-sparkle-2)'}} />
+              <span className="sparkle-dot" style={{top:'55%',left:'85%',animation:'var(--animate-sparkle-3)'}} />
+              <span className="sparkle-dot" style={{top:'40%',left:'8%',animation:'var(--animate-sparkle-4)'}} />
+              <span className="sparkle-dot" style={{top:'70%',left:'60%',animation:'var(--animate-sparkle-5)'}} />
+              <span className="sparkle-dot" style={{top:'10%',left:'50%',animation:'var(--animate-sparkle-2)',width:'4px',height:'4px'}} />
+              <span className="sparkle-dot" style={{top:'80%',left:'30%',animation:'var(--animate-sparkle-3)',width:'4px',height:'4px'}} />
+            </div>
+
             {/* MOBILE gradient: fades bottom of image into dark content zone */}
             <div className="absolute inset-0 md:hidden"
               style={{background: 'linear-gradient(to bottom, rgba(44,42,41,0.15) 0%, transparent 15%, transparent 50%, rgba(44,42,41,0.6) 65%, rgba(44,42,41,1) 78%)'}}
@@ -72,8 +85,20 @@ export default function Home() {
               A premium GLP-1 transformation experience.
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3 justify-center w-full max-w-sm md:max-w-none mx-auto">
-              <ButtonLink href="mailto:drroccogervasi@gmail.com" size="lg">Start Your Transformation</ButtonLink>
-              <ButtonLink href="#programs" size="lg" variant="secondary" className="bg-white/10 text-white border-white/50 hover:bg-white/20">
+              <ButtonLink
+                href="mailto:drroccogervasi@gmail.com"
+                size="lg"
+                onClick={() => toast.success("Opening your email app...", { description: "We\'ll be in touch soon! 💌", duration: 3000 })}
+              >
+                Start Your Transformation
+              </ButtonLink>
+              <ButtonLink
+                href="#programs"
+                size="lg"
+                variant="secondary"
+                className="bg-white/10 text-white border-white/50 hover:bg-white/20"
+                onClick={() => toast("Scrolling to programs ↓", { duration: 1500 })}
+              >
                 Explore the Program
               </ButtonLink>
             </motion.div>
@@ -99,6 +124,9 @@ export default function Home() {
             </motion.div>
           </div>
         </section>
+
+        {/* ANIMATED STATS COUNTER */}
+        <StatsCounter />
 
         {/* THE HIDDEN CHALLENGE */}
         <section className="py-24 bg-white">

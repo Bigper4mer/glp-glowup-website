@@ -20,6 +20,35 @@
       box-shadow: 0 0 0 8px rgba(212, 154, 142, 0);
     }
   }
+
+  --animate-slow-pan: slow-pan 25s ease-in-out infinite alternate;
+
+  @keyframes slow-pan {
+    0% {
+      transform: scale(1) translate(0, 0);
+    }
+    100% {
+      transform: scale(1.1) translate(-2%, 2%);
+    }
+  }
+
+  --animate-sparkle-1: sparkle 3s ease-in-out infinite;
+  --animate-sparkle-2: sparkle 4.5s ease-in-out infinite 1s;
+  --animate-sparkle-3: sparkle 3.8s ease-in-out infinite 2s;
+  --animate-sparkle-4: sparkle 5s ease-in-out infinite 0.5s;
+  --animate-sparkle-5: sparkle 4s ease-in-out infinite 1.5s;
+
+  @keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
+  }
+
+  --animate-float-up: float-up 6s ease-in-out infinite;
+
+  @keyframes float-up {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
 }
 
 :root {
@@ -27,8 +56,23 @@
   --foreground: var(--color-brand-dark);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+/* Sparkle dot base style */
+.sparkle-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,154,142,0.9) 0%, rgba(232,196,160,0.4) 60%, transparent 100%);
+  pointer-events: none;
+}
+
