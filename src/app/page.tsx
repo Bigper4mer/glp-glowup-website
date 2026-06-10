@@ -27,10 +27,27 @@ export default function Home() {
       <Navigation />
       <main className="flex-grow pt-20">
         {/* HERO SECTION */}
-        <section className="relative h-[100dvh] md:h-[90vh] min-h-[600px] flex flex-col md:flex-row md:items-center md:justify-center overflow-hidden bg-brand-dark md:bg-transparent">
-          
-          {/* Background/Image Layer */}
-          <div className="relative md:absolute inset-0 z-0 h-[40dvh] w-full md:h-full shrink-0">
+        <section className="relative min-h-[100dvh] md:h-[90vh] md:min-h-[600px] flex flex-col md:flex-row md:items-center md:justify-center overflow-hidden bg-brand-dark md:bg-transparent">
+
+          {/* === MOBILE: Stacked cinematic layout === */}
+          {/* Image Banner — top ~45% on mobile, hidden on desktop */}
+          <div className="relative block md:hidden w-full shrink-0" style={{height: '45dvh'}}>
+            <Image
+              src="/images/AU6V7.jpg"
+              alt="GLP GlowUp transformation"
+              fill
+              className="object-cover object-[center_30%] animate-slow-pan"
+              sizes="100vw"
+              priority
+            />
+            {/* Deep multi-stop fade into dark — no harsh line */}
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent" />
+            {/* Subtle side vignette */}
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/30 via-transparent to-brand-dark/30" />
+          </div>
+
+          {/* === DESKTOP: Full-screen background === */}
+          <div className="hidden md:block absolute inset-0 z-0">
             <Image
               src="/images/AU6V7.jpg"
               alt="Professional coaching environment"
@@ -39,32 +56,31 @@ export default function Home() {
               sizes="100vw"
               priority
             />
-            {/* Mobile: Fade to dark at the bottom edge | Desktop: standard bottom-up fade */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-dark/20 to-brand-dark md:bg-gradient-to-t md:from-brand-dark/90 md:via-brand-dark/50 md:to-transparent" />
-            <div className="absolute inset-0 hidden md:block bg-brand-light/5 backdrop-blur-[2px]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/50 to-transparent" />
+            <div className="absolute inset-0 bg-brand-light/5 backdrop-blur-[2px]" />
           </div>
 
-          {/* Content Layer */}
+          {/* Content Layer — mobile: fills remaining space; desktop: centered overlay */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="relative z-10 flex flex-col justify-center text-center px-4 h-[60dvh] md:h-auto w-full max-w-4xl mx-auto mt-0 md:mt-20"
+            className="relative z-10 flex flex-col justify-center items-center text-center px-6 pt-6 pb-10 md:pb-0 flex-1 md:flex-none w-full max-w-4xl mx-auto md:mt-20"
           >
             <motion.h1
               variants={fadeInUp}
-              className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 drop-shadow-md leading-tight"
+              className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold text-white mb-4 drop-shadow-md leading-tight"
             >
               Your Transformation <br className="hidden md:block" />
               Begins Here.
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto font-light"
+              className="text-lg md:text-2xl text-white/80 mb-8 max-w-2xl mx-auto font-light"
             >
               A premium GLP-1 transformation experience.
             </motion.p>
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3 justify-center w-full max-w-sm md:max-w-none">
               <ButtonLink href="mailto:drroccogervasi@gmail.com" size="lg">Start Your Transformation</ButtonLink>
               <ButtonLink href="#programs" size="lg" variant="secondary" className="bg-white/10 text-white border-white/50 hover:bg-white/20">
                 Explore the Program
