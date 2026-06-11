@@ -98,7 +98,13 @@ export function FeatureCard({
               className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden z-10"
             >
               <div className="relative h-56 w-full">
-                <Image src={imageSrc} alt={imageAlt} fill className="object-cover" />
+                <Image
+                  src={imageSrc}
+                  alt={imageAlt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) calc(100vw - 2rem), 32rem"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />
                 <button
                   onClick={() => setIsModalOpen(false)}
