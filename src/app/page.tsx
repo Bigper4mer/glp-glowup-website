@@ -33,12 +33,21 @@ export default function Home() {
 
           {/* === SINGLE UNIFIED BACKGROUND IMAGE (absolute, both mobile + desktop) === */}
           <div className="absolute inset-0 z-0">
-            {/* Mobile: object-cover instead of object-contain. Removes animate-slow-pan to stop jumping */}
+            {/* Mobile Image (9:16) */}
+            <Image
+              src="/images/hero-mobile.jpg"
+              alt="GLP GlowUp transformation"
+              fill
+              className="object-cover object-center md:hidden"
+              sizes="100vw"
+              priority
+            />
+            {/* Desktop Image */}
             <Image
               src="/images/AU6V7.jpg"
               alt="GLP GlowUp transformation"
               fill
-              className="object-cover object-top md:object-center"
+              className="hidden md:block object-cover object-center"
               sizes="100vw"
               priority
             />
