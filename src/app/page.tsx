@@ -407,12 +407,16 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-white/40">
-            <p>&copy; {new Date().getFullYear()} GLP GlowUp. All rights reserved.</p>
-            <div className="mt-4 md:mt-0 space-x-6">
-              {/* <a href="#" className="hover:text-white">Privacy Policy</a>
-              <a href="#" className="hover:text-white">Terms of Service</a> */}
-              <a href="#" className="hover:text-white">Medical Disclaimer</a>
+          <div className="pt-8 border-t border-white/10 flex flex-col gap-6 text-sm text-white/40">
+            <div className="text-xs leading-relaxed">
+              <strong className="text-white/60">Medical Disclaimer:</strong> The content provided by GLP GlowUp, including but not limited to exercise routines, nutritional guidance, and coaching, is for educational and informational purposes only. It is not intended as a substitute for professional medical advice, diagnosis, or treatment. We do not prescribe or manage medications, including GLP-1 receptor agonists. Always seek the advice of your physician or other qualified healthcare provider with any questions you may have regarding a medical condition, new diet, or fitness program. Never disregard professional medical advice or delay in seeking it because of something you have read or heard through our services.
+            </div>
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p>&copy; {new Date().getFullYear()} GLP GlowUp. All rights reserved.</p>
+              {/* <div className="mt-4 md:mt-0 space-x-6">
+                <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              </div> */}
             </div>
           </div>
         </div>
