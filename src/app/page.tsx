@@ -9,6 +9,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { FeatureCard } from "@/components/ui/feature-card";
 import { Accordion } from "@/components/ui/accordion";
 import { StatsCounter } from "@/components/ui/stats-counter";
+import { emailLinks } from "@/lib/email-templates";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -95,7 +96,7 @@ export default function Home() {
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3 justify-center w-full max-w-sm md:max-w-none mx-auto">
               <ButtonLink
-                href="mailto:drroccogervasi@gmail.com"
+                href={emailLinks.transformation}
                 size="lg"
                 onClick={() => toast.success("Opening your email app...", { description: "We\'ll be in touch soon! 💌", duration: 3000 })}
               >
@@ -286,7 +287,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <ButtonLink href="mailto:drroccogervasi@gmail.com" className="w-full" variant="secondary">Select Foundation</ButtonLink>
+                <ButtonLink href={emailLinks.foundation} className="w-full" variant="secondary">Select Foundation</ButtonLink>
               </div>
 
               {/* Performance */}
@@ -314,7 +315,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <ButtonLink href="mailto:drroccogervasi@gmail.com" className="w-full">Select Performance</ButtonLink>
+                <ButtonLink href={emailLinks.performance} className="w-full">Select Performance</ButtonLink>
               </div>
 
               {/* Concierge */}
@@ -340,7 +341,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <ButtonLink href="mailto:drroccogervasi@gmail.com" className="w-full" variant="secondary">Select Concierge</ButtonLink>
+                <ButtonLink href={emailLinks.concierge} className="w-full" variant="secondary">Select Concierge</ButtonLink>
               </div>
             </div>
           </div>
@@ -401,7 +402,7 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-6">Contact</h4>
               <p className="text-white/60 mb-2">drroccogervasi@gmail.com</p>
-              <ButtonLink href="mailto:drroccogervasi@gmail.com" size="sm" className="mt-4 bg-white/10 hover:bg-white/20 text-white border-none">
+              <ButtonLink href={emailLinks.consultation} size="sm" className="mt-4 bg-white/10 hover:bg-white/20 text-white border-none">
                 Reach Out
               </ButtonLink>
             </div>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
+import { emailLinks } from "@/lib/email-templates";
 
 export function FloatingCTA() {
   const [visible, setVisible] = useState(false);
@@ -20,7 +21,7 @@ export function FloatingCTA() {
       description: "We'll be in touch soon! 💌",
       duration: 3000,
     });
-    window.location.href = "mailto:drroccogervasi@gmail.com";
+    window.location.href = emailLinks.transformation;
   };
 
   return (

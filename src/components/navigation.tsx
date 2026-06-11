@@ -6,6 +6,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ButtonLink } from "./ui/button";
 import { cn } from "@/lib/utils";
+import { emailLinks } from "@/lib/email-templates";
 
 const links = [
   { name: "Home", href: "/" },
@@ -60,7 +61,7 @@ export function Navigation() {
                 {link.name}
               </Link>
             ))}
-            <ButtonLink href="mailto:drroccogervasi@gmail.com" size="sm">Book a Consult</ButtonLink>
+            <ButtonLink href={emailLinks.consultation} size="sm">Book a Consult</ButtonLink>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -98,7 +99,7 @@ export function Navigation() {
               </Link>
             ))}
             <div className="pt-4">
-              <ButtonLink href="mailto:drroccogervasi@gmail.com" className="w-full">Book a Consult</ButtonLink>
+              <ButtonLink href={emailLinks.consultation} className="w-full">Book a Consult</ButtonLink>
             </div>
           </div>
         </motion.div>
