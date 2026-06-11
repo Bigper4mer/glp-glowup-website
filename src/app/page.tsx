@@ -168,6 +168,8 @@ export default function Home() {
                   alt="Transformation strategy"
                   fill
                   className="object-cover object-center"
+                  quality={100}
+                  unoptimized
                 />
               </motion.div>
             </div>
