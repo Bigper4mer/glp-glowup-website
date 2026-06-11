@@ -82,14 +82,14 @@ export default function Home() {
           >
             <motion.h1
               variants={fadeInUp}
-              className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold text-white mb-4 drop-shadow-md leading-tight"
+              className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold text-white mb-4 drop-shadow-md leading-tight sr-only md:not-sr-only md:block"
             >
               Your Transformation <br className="hidden md:block" />
               Begins Here.
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="text-lg md:text-2xl text-white/80 mb-8 max-w-2xl mx-auto font-light"
+              className="text-lg md:text-2xl text-white/80 mb-8 max-w-2xl mx-auto font-light sr-only md:not-sr-only md:block"
             >
               A premium GLP-1 transformation experience.
             </motion.p>
