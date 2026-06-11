@@ -58,7 +58,7 @@ export function FeatureCard({
               src={imageSrc}
               alt={imageAlt}
               fill
-              className="object-cover"
+              className="object-cover object-top"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </motion.div>

@@ -29,16 +29,16 @@ export default function Home() {
       <Navigation />
       <main className="flex-grow">
         {/* HERO SECTION */}
-        <section className="relative min-h-[100dvh] md:h-[90vh] md:min-h-[600px] overflow-hidden bg-brand-dark" style={{backgroundColor: '#2C2A29'}}>
+        <section className="relative min-h-[100svh] md:h-[90vh] md:min-h-[600px] flex flex-col overflow-hidden bg-brand-dark" style={{backgroundColor: '#2C2A29'}}>
 
           {/* === SINGLE UNIFIED BACKGROUND IMAGE (absolute, both mobile + desktop) === */}
           <div className="absolute inset-0 z-0">
-            {/* Mobile: object-contain to show FULL image without cropping */}
+            {/* Mobile: object-cover instead of object-contain. Removes animate-slow-pan to stop jumping */}
             <Image
               src="/images/AU6V7.jpg"
               alt="GLP GlowUp transformation"
               fill
-              className="object-contain md:object-cover object-[center_25%] md:object-center animate-slow-pan"
+              className="object-cover object-top md:object-center"
               sizes="100vw"
               priority
             />
@@ -69,7 +69,7 @@ export default function Home() {
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="relative z-10 flex flex-col text-center px-6 pb-12 pt-[55dvh] md:pt-0 md:h-full md:items-center md:justify-center max-w-4xl mx-auto"
+            className="relative z-10 flex flex-col justify-end md:justify-center flex-grow h-full text-center px-6 pb-20 pt-32 max-w-4xl mx-auto w-full"
           >
             <motion.h1
               variants={fadeInUp}
@@ -164,10 +164,10 @@ export default function Home() {
                 className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl"
               >
                 <Image
-                  src="/images/Pic1.png"
+                  src="/images/woman_exercising.png"
                   alt="Transformation strategy"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                 />
               </motion.div>
             </div>
