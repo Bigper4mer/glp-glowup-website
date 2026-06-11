@@ -94,7 +94,7 @@ export default function Home() {
             >
               A premium GLP-1 transformation experience.
             </motion.p>
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3 justify-center w-full max-w-sm md:max-w-none mx-auto">
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3 justify-center w-full max-w-sm sm:max-w-xl md:max-w-none mx-auto">
               <ButtonLink
                 href={emailLinks.transformation}
                 size="lg"
