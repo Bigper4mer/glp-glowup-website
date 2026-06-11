@@ -45,8 +45,37 @@ interface ButtonLinkProps extends HTMLMotionProps<"a"> {
   size?: "sm" | "md" | "lg";
 }
 
+const MOBILE_USER_AGENT_PATTERN = /Mobi|Android|iPhone|iPad|iPod/i;
+
+function isDesktopBrowser(): boolean {
+  return (
+    typeof window !== "undefined" &&
+    !MOBILE_USER_AGENT_PATTERN.test(window.navigator.userAgent)
+  );
+}
+
+function getGmailComposeHref(mailtoHref: string): string | null {
+  try {
+    const mailtoUrl = new URL(mailtoHref);
+    if (mailtoUrl.protocol !== "mailto:") {
+      return null;
+    }
+
+    const gmailUrl = new URL("https://mail.google.com/mail/");
+    gmailUrl.searchParams.set("view", "cm");
+    gmailUrl.searchParams.set("fs", "1");
+    gmailUrl.searchParams.set("to", decodeURIComponent(mailtoUrl.pathname));
+    gmailUrl.searchParams.set("su", mailtoUrl.searchParams.get("subject") || "");
+    gmailUrl.searchParams.set("body", mailtoUrl.searchParams.get("body") || "");
+
+    return gmailUrl.toString();
+  } catch {
+    return null;
+  }
+}
+
 export const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
-  ({ className, variant = "primary", size = "md", href, onClick, ...props }, ref) => {
+  ({ className, variant = "primary", size = "md", href, onClick, target, rel, ...props }, ref) => {
     const baseStyles =
       "inline-flex items-center justify-center rounded-full font-medium transition-all focus:outline-none disabled:opacity-50 disabled:pointer-events-none";
 
@@ -63,22 +92,29 @@ export const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
       lg: "h-14 px-10 text-lg",
     };
 
+    const [resolvedHref, setResolvedHref] = React.useState(href);
+
+    React.useEffect(() => {
+      if (typeof href !== "string" || !href.startsWith("mailto:") || !isDesktopBrowser()) {
+        setResolvedHref(href);
+        return;
+      }
+
+      setResolvedHref(getGmailComposeHref(href) || href);
+    }, [href]);
+
+    const opensGmail = typeof resolvedHref === "string" && resolvedHref.startsWith("https://mail.google.com/");
+    const resolvedTarget = opensGmail ? target || "_blank" : target;
+    const resolvedRel = opensGmail
+      ? Array.from(new Set(["noopener", "noreferrer", rel].filter(Boolean))).join(" ")
+      : rel;
+
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-      if (href && href.startsWith("mailto:")) {
-        const isDesktop = typeof window !== "undefined" && !/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
-        if (isDesktop) {
+      if (typeof href === "string" && href.startsWith("mailto:") && isDesktopBrowser()) {
+        const gmailHref = getGmailComposeHref(href);
+        if (gmailHref && resolvedHref !== gmailHref) {
           e.preventDefault();
-          const mailtoMatch = href.match(/^mailto:([^?]+)(?:\?(.*))?$/);
-          if (mailtoMatch) {
-            const email = mailtoMatch[1];
-            const query = mailtoMatch[2] || "";
-            const params = new URLSearchParams(query);
-            const subject = params.get("subject") || "";
-            const body = params.get("body") || "";
-            
-            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.open(gmailUrl, "_blank");
-          }
+          window.location.assign(gmailHref);
         }
       }
       if (onClick) {
@@ -89,7 +125,9 @@ export const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
     return (
       <motion.a
         ref={ref}
-        href={href}
+        href={resolvedHref}
+        target={resolvedTarget}
+        rel={resolvedRel}
         onClick={handleClick}
         whileHover={{ y: -2 }}
         whileTap={{ scale: 0.98 }}
