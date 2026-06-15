@@ -1,9 +1,9 @@
-const EMAIL_RECIPIENT = "drroccogervasi@gmail.com";
+import { siteEmail } from "@/lib/site-content";
 
 function createMailto(subject: string, body: string): string {
   const formattedBody = body.trim().replace(/\n/g, "\r\n");
 
-  return `mailto:${EMAIL_RECIPIENT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(formattedBody)}`;
+  return `mailto:${siteEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(formattedBody)}`;
 }
 
 export const emailLinks = {

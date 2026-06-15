@@ -27,15 +27,15 @@ export function Accordion({ items, className }: AccordionProps) {
           <div key={index} className="py-5">
             <button
               onClick={() => setOpenIndex(isOpen ? null : index)}
-              className="flex w-full items-center justify-between text-left focus:outline-none"
+              className="flex w-full items-center justify-between gap-4 text-left focus:outline-none"
             >
-              <span className="text-lg font-medium text-brand-dark">
+              <span className="min-w-0 flex-1 text-lg font-medium leading-snug text-brand-dark">
                 {item.question}
               </span>
               <motion.div
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
-                className="ml-4 flex-shrink-0 text-brand-accent"
+                className="flex-shrink-0 text-brand-accent"
               >
                 <ChevronDown className="h-6 w-6" />
               </motion.div>

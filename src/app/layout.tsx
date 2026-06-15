@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { FloatingCTA } from "@/components/ui/floating-cta";
 import { BackToTop } from "@/components/ui/back-to-top";
+import { siteUrl } from "@/lib/site-content";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,8 +18,24 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "GLP GlowUp | Premium GLP-1 Transformation & Coaching",
-  description: "Transform your body the smart way. GLP GlowUp offers premium coaching, strength training, and nutritional guidance for individuals on GLP-1 medications.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "GLP GlowUp | Premium GLP-1 Transformation & Coaching",
+    template: "%s | GLP GlowUp",
+  },
+  description:
+    "A premium GLP-1 transformation experience built to help you lose fat, protect lean muscle, and sustain your results.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "GLP GlowUp | Premium GLP-1 Transformation & Coaching",
+    description:
+      "A premium GLP-1 transformation experience built to help you lose fat, protect lean muscle, and sustain your results.",
+    url: siteUrl,
+    siteName: "GLP GlowUp",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -27,7 +44,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} antialiased h-full scroll-smooth`}>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${inter.variable} ${playfair.variable} antialiased h-full scroll-smooth`}
+    >
       <body className="min-h-full flex flex-col font-sans text-brand-dark bg-brand-light">
         <ScrollProgress />
         {children}

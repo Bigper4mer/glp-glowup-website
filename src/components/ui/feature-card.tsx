@@ -13,6 +13,7 @@ interface FeatureCardProps {
   imageSrc: string;
   imageAlt: string;
   className?: string;
+  imageClassName?: string;
 }
 
 export function FeatureCard({
@@ -22,6 +23,7 @@ export function FeatureCard({
   imageSrc,
   imageAlt,
   className,
+  imageClassName,
 }: FeatureCardProps) {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
@@ -58,7 +60,7 @@ export function FeatureCard({
               src={imageSrc}
               alt={imageAlt}
               fill
-              className="object-cover object-top"
+              className={cn("object-cover object-top", imageClassName)}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </motion.div>
@@ -102,7 +104,7 @@ export function FeatureCard({
                   src={imageSrc}
                   alt={imageAlt}
                   fill
-                  className="object-cover"
+                  className={cn("object-cover", imageClassName)}
                   sizes="(max-width: 640px) calc(100vw - 2rem), 32rem"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />

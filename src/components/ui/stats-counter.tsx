@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
+import { animate, motion, useInView, useMotionValue } from "framer-motion";
 
 const stats = [
   { value: 500, suffix: "+", label: "Clients Transformed", prefix: "" },

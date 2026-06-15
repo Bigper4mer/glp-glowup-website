@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ButtonLink } from "./ui/button";
@@ -10,14 +11,17 @@ import { emailLinks } from "@/lib/email-templates";
 
 const links = [
   { name: "Home", href: "/" },
-  { name: "Program Options", href: "#programs" },
-  { name: "FAQ", href: "#faq" },
+  { name: "Program Options", href: "/#programs" },
+  { name: "FAQ", href: "/faq" },
 ];
 
 export function Navigation() {
+  const pathname = usePathname();
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const isHome = pathname === "/";
+  const showSolid = isScrolled || !isHome || isMobileMenuOpen;
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
@@ -30,7 +34,7 @@ export function Navigation() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-colors duration-300",
-        isScrolled
+        showSolid
           ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-brand-muted/10"
           : "bg-transparent"
       )}
@@ -41,7 +45,7 @@ export function Navigation() {
           <div className="flex-shrink-0">
             <Link href="/" className={cn(
               "font-serif text-2xl font-bold tracking-tight transition-colors duration-300",
-              isScrolled ? "text-brand-dark" : "text-white"
+              showSolid ? "text-brand-dark" : "text-white"
             )}>
               GLP GlowUp
             </Link>
@@ -55,7 +59,7 @@ export function Navigation() {
                 href={link.href}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-brand-accent",
-                  isScrolled ? "text-brand-dark" : "text-brand-dark/90 hover:text-brand-dark"
+                  showSolid ? "text-brand-dark" : "text-white/90 hover:text-white"
                 )}
               >
                 {link.name}
@@ -70,7 +74,7 @@ export function Navigation() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={cn(
                 "p-2 focus:outline-none transition-colors duration-300",
-                isScrolled ? "text-brand-dark" : "text-white"
+                showSolid ? "text-brand-dark" : "text-white"
               )}
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
