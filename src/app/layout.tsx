@@ -17,8 +17,10 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
+const previewUrl = "https://glp-glowup-website.netlify.app";
+
 const shareImage = {
-  url: "/og-image.webp",
+  url: `${previewUrl}/og-image.jpg`,
   width: 1200,
   height: 630,
   alt: "GLP GlowUp premium GLP-1 transformation coaching",
