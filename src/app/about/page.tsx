@@ -49,13 +49,13 @@ export default function AboutPage() {
               </ButtonLink>
             </div>
 
-            <div className="relative min-h-[520px] overflow-hidden rounded-2xl shadow-2xl">
+            <div className="relative mx-auto aspect-[3/4] w-full max-w-[440px] overflow-hidden rounded-2xl shadow-2xl md:ml-auto">
               <Image
-                src="/images/Professional headshots with warm expressions.webp"
+                src="/images/rocco-gervasi-headshot.webp"
                 alt="Rocco Gervasi"
                 fill
                 className="object-cover object-center"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) calc(100vw - 2rem), 440px"
                 priority
               />
             </div>
