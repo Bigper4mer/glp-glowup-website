@@ -17,6 +17,13 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
+const shareImage = {
+  url: "/og-image.webp",
+  width: 1200,
+  height: 630,
+  alt: "GLP GlowUp premium GLP-1 transformation coaching",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -35,6 +42,14 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "GLP GlowUp",
     type: "website",
+    images: [shareImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GLP GlowUp | Premium GLP-1 Transformation & Coaching",
+    description:
+      "A premium GLP-1 transformation experience built to help you lose fat, protect lean muscle, and sustain your results.",
+    images: [shareImage],
   },
 };
 
