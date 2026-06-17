@@ -1,3 +1,7 @@
+"use client";
+
+import { FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { FitFormQuerySync } from "@/components/fit-form-query-sync";
 import {
@@ -18,6 +22,46 @@ const labelClassName = "mb-2 block text-sm font-semibold text-brand-dark";
 const scaleOptions = Array.from({ length: 11 }, (_, index) => index.toString());
 
 export function FitFormPage() {
+  const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (isSubmitting) {
+      return;
+    }
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const encodedData = new URLSearchParams();
+
+    for (const [key, value] of formData.entries()) {
+      encodedData.append(key, typeof value === "string" ? value : value.name);
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/__forms.html", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: encodedData.toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Form submission failed with status ${response.status}`);
+      }
+
+      router.push("/fit-form/thank-you");
+    } catch (error) {
+      console.error(error);
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <div className="mx-auto grid max-w-6xl gap-10 px-4 pb-20 pt-12 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
       <FitFormQuerySync />
@@ -51,9 +95,8 @@ export function FitFormPage() {
           id="fit-form-intake"
           name={fitFormName}
           method="POST"
-          action="/fit-form/thank-you"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
+          action="/__forms.html"
+          onSubmit={handleSubmit}
           className="space-y-8"
         >
           <input type="hidden" name="form-name" value={fitFormName} />
@@ -344,8 +387,13 @@ export function FitFormPage() {
               Thank you for taking the first step toward a more structured, supported, and sustainable approach to
               body composition.
             </p>
-            <Button type="submit" size="lg" className="w-full whitespace-normal px-6 text-center leading-snug md:w-auto">
-              Apply for Coaching
+            <Button
+              type="submit"
+              size="lg"
+              disabled={isSubmitting}
+              className="w-full whitespace-normal px-6 text-center leading-snug md:w-auto"
+            >
+              {isSubmitting ? "Submitting..." : "Apply for Coaching"}
             </Button>
           </div>
         </form>
