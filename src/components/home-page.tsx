@@ -47,13 +47,13 @@ function PackageCard({ tier }: { tier: (typeof packageTiers)[number] }) {
       )}
     >
       {tier.featured && (
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-accent px-4 py-1 text-sm font-medium text-white">
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8F4C43] px-4 py-1 text-sm font-semibold text-white">
           Most Popular
         </div>
       )}
 
       <div className="mb-6">
-        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-brand-accent">
+        <p className="mb-2 text-sm font-bold uppercase tracking-[0.18em] text-[#8F4C43]">
           {tier.subtitle}
         </p>
         <h3 className="mb-3 font-serif text-3xl font-bold text-brand-dark">{tier.title}</h3>
@@ -349,7 +349,7 @@ export function HomePage() {
             </div>
 
             <div className="mt-8 text-center">
-              <Link href="/faq" className="font-semibold text-brand-accent transition-colors hover:text-[#E8A29A]">
+              <Link href="/faq" className="font-semibold text-brand-dark underline decoration-brand-accent/50 underline-offset-4 transition-colors hover:text-brand-muted">
                 View More FAQ
               </Link>
             </div>

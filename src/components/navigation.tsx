@@ -71,6 +71,9 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
+              aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={cn(
                 "p-2 focus:outline-none transition-colors duration-300",
@@ -89,6 +92,7 @@ export function Navigation() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
+          id="mobile-navigation"
           className="md:hidden bg-white border-b border-brand-muted/10"
         >
           <div className="px-4 pt-2 pb-6 space-y-4 shadow-xl">

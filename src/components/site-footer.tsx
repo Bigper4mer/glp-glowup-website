@@ -19,7 +19,7 @@ export function SiteFooter() {
             </p>
           </div>
           <div>
-            <h4 className="font-semibold mb-6">Quick Links</h4>
+            <h2 className="font-semibold mb-6 text-base">Quick Links</h2>
             <ul className="space-y-4">
               <li>
                 <Link href="/" className="text-white/60 hover:text-white transition-colors">
@@ -49,7 +49,7 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-6">Contact</h4>
+            <h2 className="font-semibold mb-6 text-base">Contact</h2>
             <a href={`mailto:${contactEmail}`} className="text-white/60 hover:text-white transition-colors break-all">
               {contactEmail}
             </a>
@@ -63,7 +63,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col gap-6 text-sm text-white/40">
+        <div className="pt-8 border-t border-white/10 flex flex-col gap-6 text-sm text-white/70">
           <div className="text-xs leading-relaxed">
             <strong className="text-white/60">Medical Disclaimer:</strong> The content provided by GLP GlowUp,
             including but not limited to exercise routines, nutritional guidance, and coaching, is for educational and

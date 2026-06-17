@@ -4,7 +4,7 @@
   --color-brand-light: #FDF8F5;
   --color-brand-accent: #D49A8E;
   --color-brand-dark: #2C2A29;
-  --color-brand-muted: #8A817C;
+  --color-brand-muted: #6F625C;
   --color-brand-card: #FFFFFF;
 
   --font-sans: var(--font-inter);
@@ -75,4 +75,3 @@ body {
   background: radial-gradient(circle, rgba(212,154,142,0.9) 0%, rgba(232,196,160,0.4) 60%, transparent 100%);
   pointer-events: none;
 }
-

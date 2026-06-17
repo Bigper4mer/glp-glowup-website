@@ -75,7 +75,7 @@ export function FeatureCard({
           {extendedDescription && (
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="mt-6 inline-flex items-center text-sm font-medium text-brand-accent hover:text-[#E8A29A] transition-colors self-start"
+              className="mt-6 inline-flex items-center text-sm font-semibold text-brand-dark hover:text-brand-muted transition-colors self-start"
             >
               Learn More <ArrowRight className="ml-1 h-4 w-4" />
             </button>
