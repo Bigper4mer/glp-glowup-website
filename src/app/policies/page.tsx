@@ -3,7 +3,7 @@ import { CheckCircle2 } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { ButtonLink } from "@/components/ui/button";
-import { emailLinks } from "@/lib/email-templates";
+import { getFitFormHref } from "@/lib/site-links";
 import { policySections } from "@/lib/site-content";
 
 export const metadata: Metadata = {
@@ -54,8 +54,8 @@ export default function PoliciesPage() {
             <p className="mx-auto mb-6 max-w-2xl text-white/70">
               Reach out before enrolling if you have questions about in-person availability, travel, or program tier fit.
             </p>
-            <ButtonLink href={emailLinks.consultation} className="whitespace-normal px-6 text-center leading-snug">
-              Reach Out
+            <ButtonLink href={getFitFormHref("policies")} className="whitespace-normal px-6 text-center leading-snug">
+              Apply for Coaching
             </ButtonLink>
           </div>
         </section>

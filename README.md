@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## GLP GlowUp Site
+
+Marketing site and intake flow for GLP GlowUp.
 
 ## Getting Started
 
@@ -16,21 +18,30 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The site uses the App Router in `src/app` and serves a Netlify-backed intake form at `/fit-form`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Netlify Form Handoff
 
-## Learn More
+- The coaching intake form is a Netlify Form named `fit-form`.
+- Netlify form notifications should be configured to send submission emails to `start@glpglowups.com`.
+- Visible general contact surfaces should continue using `hello@glpglowups.com`.
+- The thank-you flow is manual review first. Do not auto-send a booking link unless the process is intentionally changed.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Build and deploy:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+```
 
-## Deploy on Vercel
+Production is expected to deploy through Netlify from the connected GitHub repo.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Domain Attachment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Primary domain: `glpglowups.com`
+- Add both apex and `www` in Netlify before switching DNS.
+
+## Reference
+
+- [Next.js Documentation](https://nextjs.org/docs)

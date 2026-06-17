@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Navigation } from "@/components/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { ButtonLink } from "@/components/ui/button";
-import { emailLinks } from "@/lib/email-templates";
+import { getFitFormHref } from "@/lib/site-links";
 
 export const metadata: Metadata = {
   title: "About",
@@ -42,10 +42,10 @@ export default function AboutPage() {
                 </p>
               </div>
               <ButtonLink
-                href={emailLinks.consultation}
+                href={getFitFormHref("about")}
                 className="mt-8 whitespace-normal px-6 text-center leading-snug"
               >
-                Book a Consult
+                Apply for Coaching
               </ButtonLink>
             </div>
 

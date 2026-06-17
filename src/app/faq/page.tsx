@@ -3,7 +3,7 @@ import { Navigation } from "@/components/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { Accordion } from "@/components/ui/accordion";
 import { ButtonLink } from "@/components/ui/button";
-import { emailLinks } from "@/lib/email-templates";
+import { getFitFormHref } from "@/lib/site-links";
 import { fullFaqItems } from "@/lib/site-content";
 
 export const metadata: Metadata = {
@@ -40,10 +40,10 @@ export default function FAQPage() {
             <div className="mt-12 rounded-2xl bg-brand-dark p-8 text-center text-white">
               <h2 className="mb-3 font-serif text-3xl font-bold">Still have questions?</h2>
               <p className="mx-auto mb-6 max-w-2xl text-white/70">
-                Send a quick note with your medication status, goals, and best times to connect.
+                Tell us about your goals, current GLP-1 status, and the kind of support you want.
               </p>
-              <ButtonLink href={emailLinks.consultation} className="whitespace-normal px-6 text-center leading-snug">
-                Book a Consult
+              <ButtonLink href={getFitFormHref("faq")} className="whitespace-normal px-6 text-center leading-snug">
+                Apply for Coaching
               </ButtonLink>
             </div>
           </div>

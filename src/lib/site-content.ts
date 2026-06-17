@@ -1,12 +1,12 @@
 export const siteUrl = "https://glpglowups.com";
-export const siteEmail = "drroccogervasi@glpglowups.com";
+export const ctaEmail = "start@glpglowups.com";
+export const contactEmail = "hello@glpglowups.com";
 
 export type PackageTier = {
   id: string;
   title: string;
   subtitle: string;
   price: string;
-  emailKey: "foundation" | "performance" | "concierge";
   featured?: boolean;
   bestFor: string;
   summary: string[];
@@ -78,7 +78,6 @@ export const packageTiers: PackageTier[] = [
     title: "Foundation",
     subtitle: "Remote Coaching",
     price: "$649",
-    emailKey: "foundation",
     bestFor:
       "Clients who want expert structure, accountability, and guidance with minimal appointments.",
     summary: [
@@ -121,7 +120,6 @@ export const packageTiers: PackageTier[] = [
     title: "Performance",
     subtitle: "Hybrid Coaching",
     price: "$1,299",
-    emailKey: "performance",
     featured: true,
     bestFor:
       "Clients who want expert coaching, hands-on correction, and higher support to protect lean muscle, improve technique, and reduce injury risk.",
@@ -170,7 +168,6 @@ export const packageTiers: PackageTier[] = [
     title: "Concierge",
     subtitle: "Elite Coaching",
     price: "$1,899",
-    emailKey: "concierge",
     bestFor:
       "Clients who want the highest level of support, personalization, and protection against setbacks with a fully guided experience.",
     summary: [

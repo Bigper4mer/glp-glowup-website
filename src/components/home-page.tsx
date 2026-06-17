@@ -12,7 +12,7 @@ import { FeatureCard } from "@/components/ui/feature-card";
 import { Accordion } from "@/components/ui/accordion";
 import { StatsCounter } from "@/components/ui/stats-counter";
 import { cn } from "@/lib/utils";
-import { emailLinks } from "@/lib/email-templates";
+import { getFitFormHref } from "@/lib/site-links";
 import {
   hiddenChallengeParagraphs,
   homeFaqItems,
@@ -34,7 +34,7 @@ const staggerContainer: Variants = {
 };
 
 function PackageCard({ tier }: { tier: (typeof packageTiers)[number] }) {
-  const href = emailLinks[tier.emailKey as keyof typeof emailLinks];
+  const href = getFitFormHref("package", tier.id as "foundation" | "performance" | "concierge");
 
   return (
     <article
@@ -108,7 +108,7 @@ function PackageCard({ tier }: { tier: (typeof packageTiers)[number] }) {
         className="mt-auto w-full whitespace-normal px-5 text-center leading-snug"
         variant={tier.featured ? "primary" : "secondary"}
       >
-        Select {tier.title}
+        Apply for Coaching
       </ButtonLink>
     </article>
   );
@@ -186,17 +186,11 @@ export function HomePage() {
                   className="mx-auto flex w-full flex-col gap-3 sm:max-w-xl sm:flex-row sm:justify-center md:mx-0 md:max-w-none md:justify-end"
                 >
                   <ButtonLink
-                    href={emailLinks.transformation}
+                    href={getFitFormHref("hero")}
                     size="lg"
                     className="whitespace-normal px-6 text-center leading-snug"
-                    onClick={() =>
-                      toast.success("Opening your email app...", {
-                        description: "We will be in touch soon.",
-                        duration: 3000,
-                      })
-                    }
                   >
-                    Start Your Transformation
+                    Apply for Coaching
                   </ButtonLink>
                   <ButtonLink
                     href="#programs"

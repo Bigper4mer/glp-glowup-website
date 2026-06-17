@@ -7,7 +7,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ButtonLink } from "./ui/button";
 import { cn } from "@/lib/utils";
-import { emailLinks } from "@/lib/email-templates";
+import { getFitFormHref } from "@/lib/site-links";
 
 const links = [
   { name: "Home", href: "/" },
@@ -65,7 +65,7 @@ export function Navigation() {
                 {link.name}
               </Link>
             ))}
-            <ButtonLink href={emailLinks.consultation} size="sm">Book a Consult</ButtonLink>
+            <ButtonLink href={getFitFormHref("nav-consult")} size="sm">Apply for Coaching</ButtonLink>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -103,7 +103,7 @@ export function Navigation() {
               </Link>
             ))}
             <div className="pt-4">
-              <ButtonLink href={emailLinks.consultation} className="w-full">Book a Consult</ButtonLink>
+              <ButtonLink href={getFitFormHref("nav-consult")} className="w-full">Apply for Coaching</ButtonLink>
             </div>
           </div>
         </motion.div>

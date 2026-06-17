@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button";
-import { emailLinks } from "@/lib/email-templates";
-import { siteEmail } from "@/lib/site-content";
+import { contactEmail } from "@/lib/site-content";
+import { contactLinks } from "@/lib/site-links";
 
 export function SiteFooter() {
   return (
@@ -50,11 +50,11 @@ export function SiteFooter() {
           </div>
           <div>
             <h4 className="font-semibold mb-6">Contact</h4>
-            <a href={`mailto:${siteEmail}`} className="text-white/60 hover:text-white transition-colors break-all">
-              {siteEmail}
+            <a href={`mailto:${contactEmail}`} className="text-white/60 hover:text-white transition-colors break-all">
+              {contactEmail}
             </a>
             <ButtonLink
-              href={emailLinks.consultation}
+              href={contactLinks.general}
               size="sm"
               className="mt-4 bg-white/10 hover:bg-white/20 text-white border-none"
             >

@@ -1,12 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { toast } from "sonner";
-import { emailLinks } from "@/lib/email-templates";
+import { getFitFormHref } from "@/lib/site-links";
 
 export function FloatingCTA() {
   const [visible, setVisible] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,13 +18,9 @@ export function FloatingCTA() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleClick = () => {
-    toast.success("Opening your email app...", {
-      description: "We'll be in touch soon! 💌",
-      duration: 3000,
-    });
-    window.location.href = emailLinks.transformation;
-  };
+  if (pathname.startsWith("/fit-form")) {
+    return null;
+  }
 
   return (
     <AnimatePresence>
@@ -34,8 +32,8 @@ export function FloatingCTA() {
           transition={{ type: "spring", stiffness: 260, damping: 22 }}
           className="fixed bottom-6 left-4 right-4 z-50 md:hidden"
         >
-          <button
-            onClick={handleClick}
+          <Link
+            href={getFitFormHref("floating-cta")}
             className="w-full py-4 px-6 rounded-2xl text-white font-semibold text-base shadow-2xl flex items-center justify-center gap-2 animate-pulse-glow"
             style={{
               background: "linear-gradient(135deg, #D49A8E 0%, #c4836f 100%)",
@@ -43,9 +41,9 @@ export function FloatingCTA() {
             }}
           >
             <span>✨</span>
-            Start Your Transformation
+            Apply for Coaching
             <span>→</span>
-          </button>
+          </Link>
         </motion.div>
       )}
     </AnimatePresence>
