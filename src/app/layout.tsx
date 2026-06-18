@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "sonner";
-import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { FloatingCTA } from "@/components/ui/floating-cta";
-import { BackToTop } from "@/components/ui/back-to-top";
 import { siteUrl } from "@/lib/site-content";
 import { defaultOgImagePath, siteName } from "@/lib/seo";
 
@@ -59,22 +56,8 @@ export default function RootLayout({
       className={`${inter.variable} ${playfair.variable} antialiased h-full scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-sans text-brand-dark bg-brand-light">
-        <ScrollProgress />
         {children}
         <FloatingCTA />
-        <BackToTop />
-        <Toaster
-          position="top-center"
-          toastOptions={{
-            style: {
-              background: "#2C2A29",
-              color: "#FDF8F5",
-              border: "1px solid rgba(212,154,142,0.3)",
-              borderRadius: "16px",
-              fontFamily: "var(--font-inter)",
-            },
-          }}
-        />
       </body>
     </html>
   );

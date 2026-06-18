@@ -3,115 +3,124 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ButtonLink } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { getFitFormHref } from "@/lib/site-links";
 
 const links = [
-  { name: "Home", href: "/" },
+  { name: "How It Works", href: "/#method" },
   { name: "Program Options", href: "/#programs" },
+  { name: "About", href: "/about" },
   { name: "FAQ", href: "/faq" },
 ];
 
 export function Navigation() {
   const pathname = usePathname();
-  const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const isHome = pathname === "/";
   const showSolid = isScrolled || !isHome || isMobileMenuOpen;
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsScrolled(latest > 50);
-  });
+  React.useEffect(() => {
+    const updateHeader = () => setIsScrolled(window.scrollY > 36);
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    return () => window.removeEventListener("scroll", updateHeader);
+  }, []);
+
+  React.useEffect(() => {
+    if (!isMobileMenuOpen) {
+      return;
+    }
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [isMobileMenuOpen]);
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+    <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-colors duration-300",
+        "fixed inset-x-0 top-0 z-50 border-b transition duration-300",
         showSolid
-          ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-brand-muted/10"
-          : "bg-transparent"
+          ? "border-brand-line/70 bg-brand-paper/94 text-brand-dark shadow-[0_8px_30px_rgba(40,36,33,0.07)] backdrop-blur-xl"
+          : "border-transparent bg-gradient-to-b from-black/35 to-transparent text-white"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/" className={cn(
-              "font-serif text-2xl font-bold tracking-tight transition-colors duration-300",
-              showSolid ? "text-brand-dark" : "text-white"
-            )}>
-              GLP GlowUp
-            </Link>
-          </div>
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link
+          href="/"
+          className={cn(
+            "font-serif text-2xl font-bold tracking-[-0.035em] transition-colors",
+            showSolid ? "text-brand-dark" : "text-white"
+          )}
+        >
+          GLP GlowUp
+        </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {links.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-brand-accent",
-                  showSolid ? "text-brand-dark" : "text-white/90 hover:text-white"
-                )}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <ButtonLink href={getFitFormHref("nav-consult")} size="sm">Apply for Coaching</ButtonLink>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-              aria-expanded={isMobileMenuOpen}
-              aria-controls="mobile-navigation"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        <nav aria-label="Primary navigation" className="hidden items-center gap-7 md:flex">
+          {links.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
               className={cn(
-                "p-2 focus:outline-none transition-colors duration-300",
-                showSolid ? "text-brand-dark" : "text-white"
+                "text-sm font-semibold transition-colors",
+                showSolid ? "text-brand-dark hover:text-brand-accent" : "text-white/90 hover:text-white"
               )}
             >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
+              {link.name}
+            </Link>
+          ))}
+          <ButtonLink href={getFitFormHref("nav-consult")} size="sm">
+            Apply for Coaching
+          </ButtonLink>
+        </nav>
+
+        <button
+          type="button"
+          aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setIsMobileMenuOpen((open) => !open)}
+          className={cn(
+            "flex h-11 w-11 items-center justify-center rounded-full transition-colors md:hidden",
+            showSolid ? "text-brand-dark hover:bg-brand-accent/8" : "text-white hover:bg-white/10"
+          )}
+        >
+          {isMobileMenuOpen ? <X aria-hidden="true" className="h-6 w-6" /> : <Menu aria-hidden="true" className="h-6 w-6" />}
+        </button>
       </div>
 
-      {/* Mobile Nav */}
       {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
+        <div
           id="mobile-navigation"
-          className="md:hidden bg-white border-b border-brand-muted/10"
+          className="border-t border-brand-line bg-brand-paper px-4 pb-7 pt-5 text-brand-dark shadow-xl md:hidden"
         >
-          <div className="px-4 pt-2 pb-6 space-y-4 shadow-xl">
+          <nav aria-label="Mobile navigation" className="mx-auto max-w-7xl space-y-1">
             {links.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-base font-medium text-brand-dark hover:text-brand-accent"
+                className="block rounded-xl px-3 py-3 text-base font-semibold text-brand-dark hover:bg-brand-light hover:text-brand-accent"
               >
                 {link.name}
               </Link>
             ))}
             <div className="pt-4">
-              <ButtonLink href={getFitFormHref("nav-consult")} className="w-full">Apply for Coaching</ButtonLink>
+              <ButtonLink href={getFitFormHref("nav-consult")} className="w-full">
+                Apply for Coaching
+              </ButtonLink>
             </div>
-          </div>
-        </motion.div>
+          </nav>
+        </div>
       )}
-    </motion.header>
+    </header>
   );
 }

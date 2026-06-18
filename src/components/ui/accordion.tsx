@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -13,9 +12,10 @@ interface AccordionItem {
 interface AccordionProps {
   items: AccordionItem[];
   className?: string;
+  idPrefix?: string;
 }
 
-export function Accordion({ items, className }: AccordionProps) {
+export function Accordion({ items, className, idPrefix = "accordion" }: AccordionProps) {
   const [openIndex, setOpenIndex] = React.useState<number | null>(0);
 
   return (
@@ -24,37 +24,32 @@ export function Accordion({ items, className }: AccordionProps) {
         const isOpen = openIndex === index;
 
         return (
-          <div key={index} className="py-5">
+          <div key={item.question} className="py-5">
             <button
+              type="button"
               onClick={() => setOpenIndex(isOpen ? null : index)}
-              className="flex w-full items-center justify-between gap-4 text-left focus:outline-none"
+              aria-expanded={isOpen}
+              aria-controls={`${idPrefix}-panel-${index}`}
+              id={`${idPrefix}-trigger-${index}`}
+              className="flex min-h-12 w-full items-center justify-between gap-4 rounded-lg text-left"
             >
-              <span className="min-w-0 flex-1 text-lg font-medium leading-snug text-brand-dark">
+              <span className="min-w-0 flex-1 font-serif text-xl font-semibold leading-snug text-brand-dark">
                 {item.question}
               </span>
-              <motion.div
-                animate={{ rotate: isOpen ? 180 : 0 }}
-                transition={{ duration: 0.2 }}
-                className="flex-shrink-0 text-brand-accent"
-              >
-                <ChevronDown className="h-6 w-6" />
-              </motion.div>
+              <ChevronDown
+                aria-hidden="true"
+                className={cn("h-5 w-5 flex-shrink-0 text-brand-accent transition-transform", isOpen && "rotate-180")}
+              />
             </button>
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="overflow-hidden"
-                >
-                  <div className="pt-4 text-brand-muted leading-relaxed">
-                    {item.answer}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <div
+              id={`${idPrefix}-panel-${index}`}
+              role="region"
+              aria-labelledby={`${idPrefix}-trigger-${index}`}
+              hidden={!isOpen}
+              className="pt-4 leading-relaxed text-brand-muted"
+            >
+              {item.answer}
+            </div>
           </div>
         );
       })}

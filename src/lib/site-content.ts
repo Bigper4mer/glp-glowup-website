@@ -19,14 +19,38 @@ export type PackageTier = {
 };
 
 export const hiddenChallengeParagraphs = [
-  "Losing weight is not the same as transforming your body.",
-  "GLP-1 medications can help reduce body fat, but without the right strategy, they can also accelerate the loss of lean muscle, the very tissue that protects your strength, metabolism, energy, and long-term results.",
-  "When muscle is lost, metabolism slows. Strength declines. Confidence fades. And weight regain becomes more likely.",
-  "That is where most programs stop.",
-  "We do not.",
-  "Our GLP-1 body composition coaching combines research-based strength training, personalized nutrition guidance, and ongoing accountability to help you lose fat while protecting the muscle that drives your metabolism.",
-  "And more importantly, we teach you how to sustain it.",
-  "Because real transformation is not just about looking your best and weighing less. It is about becoming stronger, healthier, more confident, and equipped with the tools to maintain your results for life.",
+  "Weight loss and body composition are not the same goal.",
+  "When appetite and body weight change quickly, consistent strength training, adequate protein, recovery, and everyday movement can become harder to manage.",
+  "Without a practical system, people can reach a lower number on the scale while feeling less strong, less capable, or unsure how to maintain their progress.",
+  "GLP GlowUp adds the coaching structure around the medication conversation: a strength-first plan, protein-focused guidance, and consistent accountability.",
+  "Medication decisions remain with your prescribing clinician. Our role is to help you train, eat, recover, and follow through with greater clarity.",
+];
+
+export const coachingMethod = [
+  {
+    number: "01",
+    title: "Assess the whole picture",
+    description:
+      "We begin with your goals, health and movement history, current habits, schedule, training experience, and available support.",
+  },
+  {
+    number: "02",
+    title: "Build your Success Map",
+    description:
+      "Your coaching plan connects strength training, protein-focused nutrition, daily movement, recovery, and realistic milestones.",
+  },
+  {
+    number: "03",
+    title: "Coach the weekly reality",
+    description:
+      "Regular check-ins help identify friction early and keep the plan aligned with appetite changes, travel, stress, and real life.",
+  },
+  {
+    number: "04",
+    title: "Create a durable system",
+    description:
+      "The long-term aim is confidence and repeatable habits, not dependence on a perfect week or constant motivation.",
+  },
 ];
 
 export const solutionCards = [
@@ -91,7 +115,7 @@ export const packageTiers: PackageTier[] = [
       {
         heading: "60-Minute Virtual Start Session",
         body:
-          "Completed at the beginning of each month to review medical history, goals, habits, step targets, protein intake, sleep, lifestyle demands, and personal constraints. This establishes your customized Success Map.",
+          "A detailed review of health and movement history, goals, habits, step targets, protein intake, sleep, lifestyle demands, and personal constraints. This establishes your customized Success Map.",
       },
       {
         heading: "Training Plan Build & Success Map Review",
@@ -134,12 +158,12 @@ export const packageTiers: PackageTier[] = [
       {
         heading: "60-Minute In-Person Onboarding - Month 1",
         body:
-          "Includes medical history intake review, full-body functional assessment, and body composition review to identify movement limitations, pain triggers, asymmetries, and technique breakdowns. This creates an action plan with corrective strategies.",
+          "Includes a health and movement history review, functional movement assessment, and body composition discussion to identify limitations, pain triggers, asymmetries, and technique needs. This creates a clearer coaching plan.",
       },
       {
         heading: "Training Plan Build & Success Map Review",
         body:
-          "A personalized program for fat loss, lean muscle protection, strength, injury risk reduction, and sustainable progress.",
+          "A personalized program for fat loss support, lean muscle priorities, strength, movement quality, and sustainable progress.",
       },
       {
         heading: "Two Weekly Asynchronous Check-Ins & Strategy Coaching Touchpoints",
@@ -181,12 +205,12 @@ export const packageTiers: PackageTier[] = [
       {
         heading: "90-Minute In-Person Elite Onboarding - Month 1",
         body:
-          "Includes medical history intake, deeper orthopedic and sports-performance assessment, movement analysis, and body composition review to uncover compensations, pain triggers, recovery bottlenecks, mobility restrictions, and technique issues.",
+          "Includes a detailed health and movement history, sports-performance assessment, movement analysis, and body composition discussion to identify compensations, pain triggers, recovery bottlenecks, mobility restrictions, and technique needs.",
       },
       {
         heading: "Training Plan Build & Success Map Review",
         body:
-          "A highly personalized program for fat loss, lean muscle protection, strength, injury risk reduction, and long-term transformation.",
+          "A highly personalized program for fat loss support, lean muscle priorities, strength, movement quality, and long-term consistency.",
       },
       {
         heading: "Four 60-Minute In-Person Sessions Per Month",
@@ -213,14 +237,14 @@ export const packageTiers: PackageTier[] = [
       "Thermotek Infrared Therapy - 30 minutes, in-person",
       "3B Cold Laser - 30 minutes, in-person",
       "Myofascial Release - 30 minutes, in-person",
-      "Graston/HawkGrips Soft Tissue Treatment - 30 minutes, in-person",
+      "Graston/HawkGrips Soft Tissue Recovery Session - 30 minutes, in-person",
       "Bodywork or Percussive Sports Massage - 30 minutes, in-person",
       "Virtual Expert Exercise Movement Analysis & Technique Optimization - 30 minutes",
       "Kinesiotape Application*",
       "TENS Unit Application - 10 minutes*",
     ],
     recoveryNote:
-      "Kinesiotape and TENS may be combined with eligible in-person treatment sessions.",
+      "Kinesiotape and TENS may be combined with eligible in-person recovery sessions.",
   },
 ];
 
@@ -233,7 +257,7 @@ export const homeFaqItems = [
   {
     question: "Do you prescribe GLP-1 medications?",
     answer:
-      "No. We do not prescribe or manage medications. If you are using GLP-1s, that medication plan is managed by your prescribing clinician. We focus on the coaching system that protects your results.",
+      "No. We do not prescribe or manage medications. If you are using GLP-1s, that medication plan is managed by your prescribing clinician. We focus on training, nutrition habits, movement, and accountability within the coaching scope.",
   },
   {
     question: "Do I need to be local to participate?",
@@ -262,7 +286,7 @@ export const fullFaqItems = [
   {
     question: "What makes you different from a typical GLP-1 program?",
     answer:
-      "Most programs focus on medication and weigh-ins. GLP GlowUp focuses on strength-preserving training, movement quality, injury prevention, protein-first nutrition, weekly adjustments, and real-world execution.",
+      "Many programs focus primarily on medication and weigh-ins. GLP GlowUp focuses on strength-first training, movement quality, thoughtful exercise selection, protein-focused nutrition, weekly adjustments, and real-world execution.",
   },
   {
     question: "Do I need to work out at a gym?",
@@ -374,6 +398,15 @@ export const policySections = [
       "GLP GlowUp provides coaching for training, movement, body composition behaviors, habit systems, and performance support.",
       "We do not prescribe medications, diagnose conditions, or manage medication side effects.",
       "Concerning symptoms should be directed to your prescribing clinician or appropriate medical care.",
+    ],
+  },
+  {
+    title: "Application Data & Privacy",
+    items: [
+      "Application information is used to review coaching fit, respond to your inquiry, and prepare for a potential fit call.",
+      "Form submissions may be processed by the website hosting and communication providers used to receive and review applications.",
+      "Share only information that is relevant to coaching fit. Do not use the application for urgent concerns or time-sensitive medical information.",
+      "If you enroll, any additional information collected for service delivery will be addressed through the applicable coaching agreements and intake process.",
     ],
   },
 ];

@@ -21,9 +21,39 @@ export const fitFormFieldNames = [
   "limitation_details",
   "preferred_tier",
   "anything_else",
+  "coaching_scope_consent",
   "cta_source",
   "page_path",
 ] as const;
+
+export type FitFormFieldName = (typeof fitFormFieldNames)[number];
+export type FitFormTierValue = (typeof fitFormTierOptions)[number]["value"];
+
+export const fitFormStepFields: Record<1 | 2, FitFormFieldName[]> = {
+  1: [
+    "full_name",
+    "email",
+    "phone",
+    "preferred_contact_method",
+    "service_area_fit",
+    "location",
+    "glp1_status",
+    "primary_goal",
+    "preferred_tier",
+  ],
+  2: [
+    "biggest_challenge",
+    "coaching_openness",
+    "readiness_level",
+    "checkin_tolerance",
+    "activity_level",
+    "pain_limitations",
+    "limitation_details",
+    "heard_about",
+    "anything_else",
+    "coaching_scope_consent",
+  ],
+};
 
 export const fitFormTierOptions = [
   { value: "foundation", label: "Foundation" },
@@ -68,18 +98,51 @@ export const fitFormPainOptions = [
   "Active pain, injury, or significant limitations",
 ] as const;
 
-export function normalizeTier(value: string | null): string {
-  if (value === "foundation" || value === "performance" || value === "concierge") {
-    return value;
+function getSingleValue(value: unknown): string | null {
+  if (Array.isArray(value)) {
+    return typeof value[0] === "string" ? value[0] : null;
+  }
+
+  return typeof value === "string" ? value : null;
+}
+
+export function normalizeTier(value: unknown): FitFormTierValue {
+  const normalizedValue = getSingleValue(value);
+
+  if (
+    normalizedValue === "foundation" ||
+    normalizedValue === "performance" ||
+    normalizedValue === "concierge"
+  ) {
+    return normalizedValue;
   }
 
   return "not-sure";
 }
 
-export function normalizeSource(value: string | null): string {
-  if (!value) {
+export function normalizeSource(value: unknown): string {
+  const normalizedValue = getSingleValue(value);
+
+  if (!normalizedValue) {
     return "direct";
   }
 
-  return value.trim() || "direct";
+  return normalizedValue.trim() || "direct";
+}
+
+export function getFitFormInitialValues({
+  source,
+  tier,
+}: {
+  source?: unknown;
+  tier?: unknown;
+}) {
+  return {
+    source: normalizeSource(source),
+    tier: normalizeTier(tier),
+  };
+}
+
+export function getFitFormTierLabel(value: FitFormTierValue): string {
+  return fitFormTierOptions.find((option) => option.value === value)?.label ?? "Not sure yet";
 }

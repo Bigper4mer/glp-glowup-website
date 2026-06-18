@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Check, Mail } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { ButtonLink } from "@/components/ui/button";
@@ -17,50 +18,63 @@ export const metadata: Metadata = buildPageMetadata({
   },
 });
 
+const nextSteps = [
+  "Rocco reviews your answers personally.",
+  "If the fit looks aligned, you will receive an invitation for a short Fit Call.",
+  "The call clarifies your goals and the most appropriate program level.",
+];
+
 export default function FitFormThankYouPage() {
   return (
     <>
       <Navigation />
-      <main className="flex-grow bg-brand-light pt-28">
-        <section className="px-4 py-20 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl rounded-[28px] border border-brand-muted/10 bg-white p-8 text-center shadow-sm md:p-12">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-brand-accent">Thank you</p>
-            <h1 className="mb-5 font-serif text-4xl font-bold text-brand-dark md:text-5xl">
-              Thank you - we received your form.
-            </h1>
-            <p className="mx-auto mb-5 max-w-2xl text-lg leading-relaxed text-brand-muted">
-              You took the first step toward a more structured, supported, and sustainable approach to body
-              composition.
-            </p>
-            <p className="mx-auto mb-5 max-w-2xl text-lg leading-relaxed text-brand-muted">
-              We&apos;ll review your answers and follow up with the next best step. If it looks like a good fit,
-              we&apos;ll invite you to schedule a short Fit Call so we can clarify your goals, answer questions, and
-              recommend the best program level.
-            </p>
-            <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-brand-muted">
-              In the meantime, remember: this process is not about perfection. It is about building the right system
-              that helps you support fat loss, protect strength, and keep moving forward with confidence.
-            </p>
-            <div className="flex flex-col justify-center gap-3 sm:flex-row">
-              <ButtonLink href="/" className="whitespace-normal px-6 text-center leading-snug">
-                Return Home
-              </ButtonLink>
-              <ButtonLink
-                href={contactLinks.general}
-                variant="secondary"
-                className="whitespace-normal px-6 text-center leading-snug"
-              >
-                Contact GLP GlowUp
-              </ButtonLink>
+      <main className="bg-brand-light pt-20">
+        <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <div className="mx-auto grid max-w-6xl overflow-hidden bg-brand-paper shadow-[var(--shadow-soft)] lg:grid-cols-[1.08fr_0.92fr]">
+            <div className="px-7 py-12 sm:px-12 lg:px-16 lg:py-16">
+              <p className="editorial-label">Application received</p>
+              <h1 className="text-balance mt-5 font-serif text-5xl font-medium leading-[0.98] tracking-[-0.05em] text-brand-dark md:text-6xl">
+                Thank you for sharing where you are and what you need.
+              </h1>
+              <p className="mt-7 text-lg leading-relaxed text-brand-muted">
+                Your form is now in the personal review queue. This is not an automated booking funnel; the next step
+                is based on fit, service area, and the type of support that would be most useful.
+              </p>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <ButtonLink href="/">Return Home</ButtonLink>
+                <ButtonLink href={contactLinks.general} variant="secondary">
+                  Contact GLP GlowUp
+                </ButtonLink>
+              </div>
             </div>
-            <p className="mt-6 text-sm text-brand-muted">
-              General questions can also be sent through the contact link while your application is under review.
-            </p>
-            <p className="mt-2 text-sm text-brand-muted">
-              <Link href="/policies" className="font-medium text-brand-dark underline decoration-brand-accent/50 underline-offset-4">
-                Review program policies
-              </Link>
-            </p>
+
+            <aside className="bg-brand-dark px-7 py-12 text-white sm:px-12 lg:px-14 lg:py-16">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-accent-soft">What happens next</p>
+              <ol className="mt-8 space-y-7">
+                {nextSteps.map((step, index) => (
+                  <li key={step} className="flex gap-4">
+                    <span className="font-serif text-2xl text-brand-accent-soft">0{index + 1}</span>
+                    <p className="leading-relaxed text-white/75">{step}</p>
+                  </li>
+                ))}
+              </ol>
+              <div className="mt-10 border-t border-white/15 pt-7">
+                <div className="flex gap-3">
+                  <Mail aria-hidden="true" className="mt-1 h-5 w-5 flex-none text-brand-accent-soft" />
+                  <p className="text-sm leading-relaxed text-white/65">
+                    Watch the email address you provided for the follow-up. General questions can be sent through the
+                    contact link while the form is under review.
+                  </p>
+                </div>
+                <Link
+                  href="/policies"
+                  className="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold text-white underline decoration-brand-accent-soft/60 underline-offset-6"
+                >
+                  <Check aria-hidden="true" className="h-4 w-4" />
+                  Review program policies
+                </Link>
+              </div>
+            </aside>
           </div>
         </section>
       </main>
