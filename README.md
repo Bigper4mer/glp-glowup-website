@@ -39,8 +39,9 @@ Production is expected to deploy through Netlify from the connected GitHub repo.
 
 ## Domain Attachment
 
-- Primary domain: `glpglowups.com`
-- Add both apex and `www` in Netlify before switching DNS.
+- Temporary production URL: `https://glp-glowup-website.netlify.app`
+- Future primary domain after client transfer: `glpglowups.com`
+- Add both apex and `www` in Netlify and update `siteUrl` after the domain DNS is transferred.
 
 ## Reference
 

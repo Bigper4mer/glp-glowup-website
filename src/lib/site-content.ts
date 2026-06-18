@@ -1,4 +1,4 @@
-export const siteUrl = "https://glpglowups.com";
+export const siteUrl = "https://glp-glowup-website.netlify.app";
 export const ctaEmail = "start@glpglowups.com";
 export const contactEmail = "hello@glpglowups.com";
 
