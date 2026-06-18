@@ -120,15 +120,15 @@ export function HomePage() {
       <Navigation />
       <main className="flex-grow">
         <section
-          className="relative flex min-h-[100svh] flex-col overflow-hidden bg-brand-dark md:min-h-[720px] lg:h-[100svh]"
+          className="relative overflow-hidden bg-brand-dark"
           style={{ backgroundColor: "#2C2A29" }}
         >
-          <div className="absolute inset-0 z-0">
+          <div className="relative min-h-[52svh] sm:min-h-[58svh] md:min-h-[78svh] lg:min-h-[84svh]">
             <Image
               src="/images/hero-mobile.webp"
               alt="GLP GlowUp transformation"
               fill
-              className="object-cover object-center md:hidden"
+              className="object-cover object-[center_28%] md:hidden"
               sizes="(max-width: 767px) 100vw, 0px"
               priority
             />
@@ -136,7 +136,7 @@ export function HomePage() {
               src="/images/AU6V7.webp"
               alt="GLP GlowUp transformation"
               fill
-              className="hidden object-cover object-[68%_center] md:block"
+              className="hidden object-cover object-[62%_center] md:block"
               sizes="(min-width: 768px) 100vw, 0px"
               priority
             />
@@ -149,42 +149,56 @@ export function HomePage() {
               <span className="sparkle-dot" style={{ top: "70%", left: "60%", animation: "var(--animate-sparkle-5)" }} />
             </div>
 
-            <div
-              className="absolute inset-0 md:hidden"
-              style={{
-                background:
-                  "linear-gradient(to bottom, rgba(44,42,41,0.15) 0%, transparent 16%, transparent 52%, rgba(44,42,41,0.58) 66%, rgba(44,42,41,1) 82%)",
-              }}
-            />
-            <div className="absolute inset-0 hidden bg-gradient-to-t from-brand-dark/90 via-brand-dark/45 to-transparent md:block" />
-            <div className="absolute inset-0 hidden bg-brand-light/5 backdrop-blur-[1px] md:block" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/20 via-transparent to-brand-dark/10" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_14%_72%,rgba(44,42,41,0.18),transparent_28%),radial-gradient(circle_at_78%_18%,rgba(253,248,245,0.08),transparent_18%)]" />
           </div>
+        </section>
 
+        <section className="relative z-20 bg-brand-light px-4 pb-18 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="relative z-10 flex min-h-[100svh] w-full flex-grow items-end px-6 pb-16 pt-32 md:min-h-[720px] md:pb-20 lg:h-[100svh]"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="mx-auto -mt-10 max-w-6xl rounded-[32px] border border-white/70 bg-[linear-gradient(135deg,rgba(255,255,255,0.97),rgba(253,248,245,0.9))] p-8 shadow-[0_30px_80px_rgba(44,42,41,0.12)] backdrop-blur md:-mt-14 md:p-12"
           >
-            <div className="mx-auto flex w-full max-w-7xl justify-center md:justify-end">
-              <div className="w-full max-w-sm text-center sm:max-w-xl md:max-w-2xl md:text-right">
-                <motion.h1
-                  variants={fadeInUp}
-                  className="sr-only"
-                >
-                  Your Transformation <br className="hidden md:block" />
-                  Begins Here.
-                </motion.h1>
-                <motion.p
-                  variants={fadeInUp}
-                  className="sr-only"
-                >
-                  A premium GLP-1 transformation experience.
-                </motion.p>
-                <motion.div
-                  variants={fadeInUp}
-                  className="mx-auto flex w-full flex-col gap-3 sm:max-w-xl sm:flex-row sm:justify-center md:mx-0 md:max-w-none md:justify-end"
-                >
+            <div className="grid gap-10 md:grid-cols-[1.08fr_0.92fr] md:items-start">
+              <div>
+                <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-brand-accent">
+                  Philadelphia & South Jersey GLP-1 Coaching
+                </p>
+                <div className="mb-5 flex flex-wrap gap-2">
+                  {[
+                    "Strength-first coaching",
+                    "Remote and in-person options",
+                    "Lean muscle protection",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-brand-accent/12 bg-brand-light px-3 py-1.5 text-xs font-medium text-brand-muted"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                <h1 className="mb-6 max-w-[12ch] font-serif text-4xl font-medium leading-[0.96] text-brand-dark md:text-[4.35rem]">
+                  GLP-1 Body Composition Coaching
+                  <span className="mt-3 block text-[0.48em] font-medium leading-[1.08] text-brand-accent">
+                    for Philadelphia & South Jersey
+                  </span>
+                </h1>
+                <div className="space-y-4 text-lg leading-relaxed text-brand-muted md:text-xl">
+                  <p>
+                    GLP GlowUp is designed for people who want more than a lower number on the scale. It is a premium
+                    coaching system built to support fat loss while protecting lean muscle, strength, consistency, and
+                    confidence.
+                  </p>
+                  <p>
+                    You get a clear strategy for training, protein, recovery, and accountability instead of trying to
+                    piece together results from medication-only advice.
+                  </p>
+                </div>
+                <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row">
                   <ButtonLink
                     href={getFitFormHref("hero")}
                     size="lg"
@@ -196,31 +210,42 @@ export function HomePage() {
                     href="#programs"
                     size="lg"
                     variant="secondary"
-                    className="whitespace-normal border-white/50 bg-white/10 px-6 text-center leading-snug text-white hover:bg-white/20"
+                    className="whitespace-normal px-6 text-center leading-snug"
                     onClick={() => toast("Scrolling to programs", { duration: 1500 })}
                   >
                     Explore the Program
                   </ButtonLink>
-                </motion.div>
+                </div>
+              </div>
+
+              <div className="grid gap-4">
+                {[
+                  {
+                    title: "Protect lean muscle",
+                    body: "Strength-preserving training and protein-first guidance help keep body composition front and center.",
+                  },
+                  {
+                    title: "Support that fits real life",
+                    body: "Choose remote coaching or higher-touch in-person support across Philadelphia and South Jersey.",
+                  },
+                  {
+                    title: "Stay accountable",
+                    body: "Weekly adjustments keep the plan practical, measurable, and easier to sustain.",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl border border-brand-accent/12 bg-white/72 p-5 shadow-sm"
+                  >
+                    <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-accent">
+                      {item.title}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-brand-muted md:text-base">{item.body}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>
-        </section>
-
-        <section className="bg-brand-light py-24">
-          <div className="mx-auto max-w-4xl px-4 text-center">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeInUp}>
-              <h2 className="mb-6 font-serif text-3xl font-medium leading-tight text-brand-dark md:text-5xl">
-                This is more than weight loss. <br className="hidden md:block" />
-                It&apos;s a guided <span className="italic text-brand-accent">glow-up.</span>
-              </h2>
-              <p className="text-lg leading-relaxed text-brand-muted md:text-xl">
-                GLP GlowUp is designed for people who want more than a lighter number on the scale. It is a premium
-                support system built to help you lose fat while protecting strength, lean mass, consistency, and
-                confidence along the way.
-              </p>
-            </motion.div>
-          </div>
         </section>
 
         <StatsCounter />
@@ -273,8 +298,8 @@ export function HomePage() {
             <div className="mb-16 text-center">
               <h2 className="mb-4 font-serif text-4xl font-bold text-brand-dark">GLP GlowUp Solution</h2>
               <p className="mx-auto max-w-3xl text-xl leading-relaxed text-brand-muted">
-                A guided strategy to help you lose fat, protect lean muscle, build confidence, and sustain your results
-                for life.
+                A guided GLP-1 body composition coaching strategy built to support fat loss, protect lean muscle, build
+                confidence, and help you sustain your results for life.
               </p>
             </div>
 
@@ -285,8 +310,8 @@ export function HomePage() {
             </div>
 
             <p className="mx-auto mt-12 max-w-4xl text-center text-lg font-medium leading-relaxed text-brand-dark">
-              No guesswork: proven weekly rhythm built on a clear plan, weekly accountability, and step-by-step guidance
-              so you always know exactly what to do next.
+              No guesswork. Just a clear weekly rhythm built on strength training during GLP-1 weight loss,
+              protein-first guidance, accountability, and step-by-step adjustments so you always know what to do next.
             </p>
           </div>
         </section>
@@ -295,14 +320,16 @@ export function HomePage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-16 text-center">
               <h2 className="mb-4 font-serif text-4xl font-bold text-white">Who GLP GlowUp is For</h2>
-              <p className="text-xl text-white/70">This program is designed specifically for individuals who are:</p>
+              <p className="text-xl text-white/70">
+                This program is designed for people who want more structure than a medication-only approach can offer.
+              </p>
             </div>
 
             <div className="grid gap-12 md:grid-cols-3">
               {[
-                "Using GLP-1s and want to protect lean mass and metabolic health.",
-                "Busy professionals who need clear structure, not more noise and confusion.",
-                "Ready for sustainable, life-long transformation, not a temporary fix.",
+                "Using GLP-1s and want coaching that prioritizes lean muscle protection, strength, and sustainable habits.",
+                "Based in Philadelphia or South Jersey and looking for remote coaching, hybrid support, or in-person guidance.",
+                "Busy professionals who need clear structure, practical accountability, and a plan they can actually follow.",
               ].map((item, i) => (
                 <motion.div
                   key={item}
@@ -325,7 +352,7 @@ export function HomePage() {
             <div className="mb-16 text-center">
               <h2 className="mb-4 font-serif text-4xl font-bold text-brand-dark">Program Options</h2>
               <p className="mx-auto max-w-2xl text-xl leading-relaxed text-brand-muted">
-                Choose the level of structure, in-person support, and accountability that matches your goals.
+                Choose the level of structure, accountability, and remote or in-person support that matches your goals.
               </p>
             </div>
 
@@ -341,7 +368,9 @@ export function HomePage() {
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
             <div className="mb-12 text-center">
               <h2 className="mb-4 font-serif text-4xl font-bold text-brand-dark">Frequently Asked Questions</h2>
-              <p className="text-lg text-brand-muted">The most common questions before starting.</p>
+              <p className="text-lg text-brand-muted">
+                The most common questions about GLP-1 body composition coaching before starting.
+              </p>
             </div>
 
             <div className="rounded-2xl border border-brand-muted/10 bg-white p-8 shadow-sm md:p-12">

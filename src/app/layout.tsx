@@ -6,6 +6,7 @@ import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { FloatingCTA } from "@/components/ui/floating-cta";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { siteUrl } from "@/lib/site-content";
+import { defaultOgImagePath, siteName } from "@/lib/seo";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,41 +18,32 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
-const previewUrl = "https://glp-glowup-website.netlify.app";
-
-const shareImage = {
-  url: `${previewUrl}/og-image.jpg`,
-  width: 1200,
-  height: 630,
-  alt: "GLP GlowUp premium GLP-1 transformation coaching",
-};
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "GLP GlowUp | Premium GLP-1 Transformation & Coaching",
+    default: siteName,
     template: "%s | GLP GlowUp",
   },
-  description:
-    "A premium GLP-1 transformation experience built to help you lose fat, protect lean muscle, and sustain your results.",
-  alternates: {
-    canonical: "/",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   openGraph: {
-    title: "GLP GlowUp | Premium GLP-1 Transformation & Coaching",
-    description:
-      "A premium GLP-1 transformation experience built to help you lose fat, protect lean muscle, and sustain your results.",
-    url: siteUrl,
-    siteName: "GLP GlowUp",
+    siteName,
     type: "website",
-    images: [shareImage],
+    locale: "en_US",
+    images: [defaultOgImagePath],
   },
   twitter: {
     card: "summary_large_image",
-    title: "GLP GlowUp | Premium GLP-1 Transformation & Coaching",
-    description:
-      "A premium GLP-1 transformation experience built to help you lose fat, protect lean muscle, and sustain your results.",
-    images: [shareImage],
+    images: [defaultOgImagePath],
   },
 };
 

@@ -5,15 +5,14 @@ import { SiteFooter } from "@/components/site-footer";
 import { ButtonLink } from "@/components/ui/button";
 import { getFitFormHref } from "@/lib/site-links";
 import { policySections } from "@/lib/site-content";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Policies",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Service Area, Policies & Billing",
   description:
-    "GLP GlowUp program details, scheduling guidelines, service area, cancellation rules, billing terms, and cash-pay policies.",
-  alternates: {
-    canonical: "/policies",
-  },
-};
+    "Review GLP GlowUp coaching policies, Philadelphia and South Jersey service-area details, scheduling, billing, cancellation terms, and the scope of remote and in-person GLP-1 coaching support.",
+  canonical: "/policies",
+});
 
 export default function PoliciesPage() {
   return (
@@ -24,10 +23,11 @@ export default function PoliciesPage() {
           <div className="mx-auto max-w-4xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-brand-accent">Policies</p>
             <h1 className="mb-5 font-serif text-4xl font-bold text-brand-dark md:text-6xl">
-              Program Details & Guidelines
+              Philadelphia & South Jersey Coaching Policies
             </h1>
             <p className="mx-auto max-w-2xl text-lg leading-relaxed text-brand-muted">
-              A clear reference for scheduling, service area, communication, payments, and scope of coaching services.
+              A clear reference for service area, scheduling, payments, communication, and the scope of GLP-1 body
+              composition coaching services.
             </p>
           </div>
         </section>
@@ -52,7 +52,8 @@ export default function PoliciesPage() {
           <div className="mx-auto mt-12 max-w-4xl rounded-2xl bg-brand-dark p-8 text-center text-white">
             <h2 className="mb-3 font-serif text-3xl font-bold">Need to confirm fit or location?</h2>
             <p className="mx-auto mb-6 max-w-2xl text-white/70">
-              Reach out before enrolling if you have questions about in-person availability, travel, or program tier fit.
+              Reach out before enrolling if you have questions about Philadelphia or South Jersey in-person
+              availability, travel, or program tier fit.
             </p>
             <ButtonLink href={getFitFormHref("policies")} className="whitespace-normal px-6 text-center leading-snug">
               Apply for Coaching

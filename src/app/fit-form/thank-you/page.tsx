@@ -4,15 +4,18 @@ import { Navigation } from "@/components/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { ButtonLink } from "@/components/ui/button";
 import { contactLinks } from "@/lib/site-links";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Thank You",
   description:
     "Confirmation that your GLP GlowUp fit form was received and is under manual review before the next step.",
-  alternates: {
-    canonical: "/fit-form/thank-you",
+  canonical: "/fit-form/thank-you",
+  robots: {
+    index: false,
+    follow: false,
   },
-};
+});
 
 export default function FitFormThankYouPage() {
   return (
@@ -36,7 +39,7 @@ export default function FitFormThankYouPage() {
             </p>
             <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-brand-muted">
               In the meantime, remember: this process is not about perfection. It is about building the right system
-              - one that helps you lose fat, protect strength, and keep moving forward with confidence.
+              that helps you support fat loss, protect strength, and keep moving forward with confidence.
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row">
               <ButtonLink href="/" className="whitespace-normal px-6 text-center leading-snug">

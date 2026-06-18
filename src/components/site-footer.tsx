@@ -15,7 +15,8 @@ export function SiteFooter() {
               GLP GlowUp
             </Link>
             <p className="text-white/60 max-w-sm">
-              A premium transformation experience protecting your strength, metabolism, and confidence.
+              Premium GLP-1 body composition coaching for Philadelphia and South Jersey clients who want strength,
+              structure, and accountability.
             </p>
           </div>
           <div>

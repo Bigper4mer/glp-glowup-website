@@ -68,12 +68,15 @@ export function FitFormPage() {
       <section className="lg:sticky lg:top-32 lg:self-start">
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-brand-accent">Short Fit Form</p>
         <h1 className="mb-5 font-serif text-4xl font-bold leading-tight text-brand-dark md:text-6xl">
-          GLP-1 Body Composition Coaching
+          Apply for GLP-1 Body Composition Coaching
         </h1>
-        <p className="mb-4 text-lg leading-relaxed text-brand-muted">Let&apos;s make sure this is the right fit.</p>
+        <p className="mb-4 text-lg leading-relaxed text-brand-muted">
+          Let&apos;s make sure this is the right fit for your goals, location, and support needs.
+        </p>
         <p className="mb-6 max-w-xl text-base leading-relaxed text-brand-muted">
-          Share a few details about your goals, current season, and the type of support you want. We review every
-          application manually before recommending the next best step.
+          Share a few details about your goals, current season, and the type of support you want. We manually review
+          every application for Philadelphia, South Jersey, and remote GLP-1 coaching before recommending the next best
+          step.
         </p>
         <div className="rounded-2xl border border-brand-accent/20 bg-white p-5 shadow-sm">
           <p className="text-sm font-semibold text-brand-dark">Application context</p>

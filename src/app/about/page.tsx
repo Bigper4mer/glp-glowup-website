@@ -4,15 +4,14 @@ import { Navigation } from "@/components/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { ButtonLink } from "@/components/ui/button";
 import { getFitFormHref } from "@/lib/site-links";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata: Metadata = buildPageMetadata({
+  title: "About Rocco Gervasi, DPT, CSCS, VRC",
   description:
-    "Learn about GLP GlowUp, a premium GLP-1 body recomposition coaching experience led by Rocco Gervasi, DPT, CSCS, VRC.",
-  alternates: {
-    canonical: "/about",
-  },
-};
+    "Learn how GLP GlowUp approaches GLP-1 body composition coaching in Philadelphia and South Jersey through strength training, movement analysis, nutrition guidance, and long-term accountability.",
+  canonical: "/about",
+});
 
 export default function AboutPage() {
   return (
@@ -24,21 +23,23 @@ export default function AboutPage() {
             <div>
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-brand-accent">About</p>
               <h1 className="mb-6 font-serif text-4xl font-bold leading-tight text-brand-dark md:text-6xl">
-                Built for more than weight loss.
+                GLP-1 coaching built for strength, structure, and long-term follow-through.
               </h1>
               <div className="space-y-5 text-lg leading-relaxed text-brand-muted">
                 <p>
-                  GLP GlowUp was created for people who want more than a lower number on the scale. The program treats
-                  GLP-1 weight loss as a full body recomposition process: lose fat, protect lean muscle, build strength,
-                  and leave with systems you can keep using.
+                  GLP GlowUp was created for people who want more than a lower number on the scale. We treat GLP-1
+                  weight loss like a body composition project: support fat loss, protect lean muscle, build strength,
+                  and leave you with systems you can keep using after the initial phase.
                 </p>
                 <p>
-                  The experience combines strategic strength training, personalized nutrition guidance, movement quality,
-                  and ongoing accountability so clients are not left guessing while their body changes.
+                  For clients in Philadelphia and South Jersey, that means a premium coaching experience built around
+                  strategic strength training, personalized nutrition guidance, movement quality, and ongoing
+                  accountability so you are not left guessing while your body changes.
                 </p>
                 <p>
-                  It is designed for busy people who want a premium, guided path that supports confidence, performance,
-                  and long-term sustainability.
+                  The goal is not hype or fast promises. It is a clinically informed, coaching-first system for busy
+                  people who want clearer structure, safer progress, and more confidence in how they train during GLP-1
+                  weight loss.
                 </p>
               </div>
               <ButtonLink
@@ -70,11 +71,13 @@ export default function AboutPage() {
             <div className="space-y-5 text-lg leading-relaxed text-brand-muted">
               <p>
                 Rocco brings a clinical and performance-minded lens to body transformation, combining physical therapy,
-                strength and conditioning, and practical coaching systems.
+                strength and conditioning, and practical coaching systems for clients who want more than generic GLP-1
+                weight loss advice.
               </p>
               <p>
-                GLP GlowUp exists to help clients move through GLP-1 weight loss with structure, accountability, and a
-                clear strategy for protecting the muscle and habits that support lasting results.
+                GLP GlowUp exists to help clients move through GLP-1 weight loss with local or remote support,
+                structure, accountability, and a clear strategy for protecting the muscle and habits that support
+                lasting results.
               </p>
             </div>
           </div>

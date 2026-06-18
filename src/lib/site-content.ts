@@ -24,7 +24,7 @@ export const hiddenChallengeParagraphs = [
   "When muscle is lost, metabolism slows. Strength declines. Confidence fades. And weight regain becomes more likely.",
   "That is where most programs stop.",
   "We do not.",
-  "Our Premium GLP-1 Transformation Experience combines research-based strategic strength training, personalized nutrition guidance, and ongoing accountability to help you lose fat while protecting the muscle that drives your metabolism.",
+  "Our GLP-1 body composition coaching combines research-based strength training, personalized nutrition guidance, and ongoing accountability to help you lose fat while protecting the muscle that drives your metabolism.",
   "And more importantly, we teach you how to sustain it.",
   "Because real transformation is not just about looking your best and weighing less. It is about becoming stronger, healthier, more confident, and equipped with the tools to maintain your results for life.",
 ];
@@ -228,7 +228,7 @@ export const homeFaqItems = [
   {
     question: "What is GLP-1 Body Composition Coaching?",
     answer:
-      "We run GLP-1 weight loss like a body recomposition project: helping you lose fat while protecting strength and lean mass using structured training, protein-first targets, and weekly accountability.",
+      "We run GLP-1 weight loss like a body recomposition project: helping you support fat loss while protecting strength and lean mass through structured training, protein-first targets, and weekly accountability.",
   },
   {
     question: "Do you prescribe GLP-1 medications?",
@@ -238,7 +238,7 @@ export const homeFaqItems = [
   {
     question: "Do I need to be local to participate?",
     answer:
-      "Foundation is fully remote. Performance and Concierge include in-person onboarding, assessments, and sessions, so you need to be able to visit the Service Area. In-person sessions are available at a gym, office, home, or agreed-upon location; any gym day-pass or facility fees are the client's responsibility.",
+      "Foundation is fully remote. Performance and Concierge include in-person onboarding, assessments, and sessions, so you need to be able to visit the Philadelphia and South Jersey service area. In-person sessions are available at a gym, office, home, or agreed-upon location; any gym day-pass or facility fees are the client's responsibility.",
   },
 ];
 
@@ -252,7 +252,7 @@ export const fullFaqItems = [
   {
     question: "Who is this program for?",
     answer:
-      "It is for people using, planning to use, or considering GLP-1 medications who want fat loss without unnecessary strength loss. It is also for clients who want a real-life plan, accountability, and a stronger body after the weight comes off.",
+      "It is for people using, planning to use, or considering GLP-1 medications who want fat loss support without unnecessary strength loss. It is also for clients who want a real-life plan, accountability, and a stronger body after the weight comes off.",
   },
   {
     question: "Do I have to be on a GLP-1 to do this program?",
@@ -287,7 +287,7 @@ export const fullFaqItems = [
   {
     question: "What if I have pain or an old injury?",
     answer:
-      "Performance and Concierge include movement and orthopedic or sports-performance assessment elements to help identify limitations and build a safer corrective strategy.",
+      "Performance and Concierge include movement and orthopedic or sports-performance assessment elements to help identify limitations and build a safer coaching strategy.",
   },
   {
     question: "Can I do Foundation remotely if I am out of state?",
@@ -306,7 +306,7 @@ export const policySections = [
     title: "Program Details & Scheduling Guidelines",
     items: [
       "Foundation is delivered remotely.",
-      "Performance and Concierge include in-person sessions within the Service Area.",
+      "Performance and Concierge include in-person sessions within the Philadelphia and South Jersey service area.",
       "Appointments are generally available Monday through Friday from 9 AM to 5 PM unless otherwise stated.",
       "Weekly check-ins should be submitted on Sunday. Feedback is typically provided within 1-2 business days.",
     ],
