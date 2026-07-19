@@ -38,3 +38,12 @@ test("legacy internal intake routes, components, and helpers are removed", async
     await assert.rejects(access(new URL(path, import.meta.url)), { code: "ENOENT" }, path);
   }
 });
+
+test("the README documents an intentional query-free Short Fit cutover", async () => {
+  const readme = await readFile(new URL("../README.md", import.meta.url), "utf8");
+
+  assert.match(readme, /https:\/\/shortfit\.glpglowups\.com/);
+  assert.match(readme, /\/fit-form[^\n]*intentionally returns 404/i);
+  assert.match(readme, /answer-bearing query parameters[^\n]*(?:not forwarded|cannot be forwarded)/i);
+  assert.doesNotMatch(readme, /Netlify Form named|form notifications should be configured/i);
+});

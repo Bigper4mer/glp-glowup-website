@@ -1,6 +1,6 @@
 ## GLP GlowUp Site
 
-Marketing site and intake flow for GLP GlowUp.
+Marketing site for GLP GlowUp.
 
 ## Getting Started
 
@@ -18,14 +18,15 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The site uses the App Router in `src/app` and serves a Netlify-backed intake form at `/fit-form`.
+The site uses the App Router in `src/app`. Application, inquiry, and question actions use the external Short Fit site at exactly `https://shortfit.glpglowups.com`, without query parameters.
 
-## Netlify Form Handoff
+## Application and Inquiry Handoff
 
-- The coaching intake form is a Netlify Form named `fit-form`.
-- Netlify form notifications should be configured to send submission emails to `start@glpglowups.com`.
-- Visible general contact surfaces should continue using `hello@glpglowups.com`.
-- The thank-you flow is manual review first. Do not auto-send a booking link unless the process is intentionally changed.
+- Short Fit is the only application and inquiry collection surface linked from this marketing site.
+- Local Netlify forms and their notification setup are retired; this repository does not collect or process form submissions.
+- The legacy `/fit-form` path intentionally returns 404 instead of redirecting, so old answer-bearing query parameters are not forwarded or retained.
+- Direct current users to the exact query-free URL `https://shortfit.glpglowups.com`.
+- `hello@glpglowups.com` remains visible as a non-clickable administrative address; it is not an application or inquiry action.
 
 ## Deploy
 
