@@ -91,6 +91,13 @@ test("SEO surfaces keep marketing indexable and omit the retired internal route"
   assert.match(seo, /serviceUrl:\s*shortFitUrl/);
 });
 
+test("canonical metadata uses the live custom domain", async () => {
+  const siteContent = await readFile(new URL("../src/lib/site-content.ts", import.meta.url), "utf8");
+
+  assert.match(siteContent, /siteUrl\s*=\s*["']https:\/\/glpglowups\.com["']/);
+  assert.doesNotMatch(siteContent, /glp-glowup-website\.netlify\.app/);
+});
+
 test("marketing source no longer ships a legacy contact collection flow", async () => {
   const source = (await readSourceFiles(new URL("../src/", import.meta.url))).join("\n");
   const staticForms = await readOptional(new URL("../public/__forms.html", import.meta.url));
