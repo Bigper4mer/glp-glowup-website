@@ -63,7 +63,7 @@ New names isolate v2 records from historical v1 records inside the same projects
 
 ## Marketing-Site Boundary
 
-The marketing repository stops owning forms. The internal `/fit-form` flow, contact form, Netlify detection forms, and mailto-template generator are removed after a complete call-site audit.
+The marketing repository stops exposing or submitting forms. The internal `/fit-form` flow, contact form, Netlify detection markup, and mailto-template generator are removed after a complete call-site audit. Previously detected Netlify form objects or historical marketing-form records are not automatically deleted; they remain isolated until a separately approved retention and cleanup decision.
 
 Every clickable consultation, application, question, and contact CTA routes to:
 
@@ -292,7 +292,7 @@ The design is complete when:
 
 - The private form repository preserves a verified v1 baseline and reviewed v2 history.
 - Short Fit v2 is minimized and production-verified on its existing domain.
-- The marketing site collects no form responses and uses no mailto templates.
+- The marketing site exposes no form UI or submission code and uses no mailto templates; any previously detected Netlify form objects remain untouched pending separate cleanup approval.
 - The administrative email remains visible but non-clickable.
 - Enrolled v2 previews pass privacy, schema, browser, and security tests.
 - Enrolled v1 remains live as directed and untouched by automated record operations.
