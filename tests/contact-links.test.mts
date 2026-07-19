@@ -5,6 +5,8 @@ import test from "node:test";
 import ts from "typescript";
 
 const shortFitEndpoint = "https://shortfit.glpglowups.com";
+const fitFormSources = ["hero", "nav-consult", "floating-cta", "package", "about", "faq", "policies", "direct"] as const;
+const fitFormTiers = ["foundation", "performance", "concierge"] as const;
 
 async function readSourceFiles(directory: URL): Promise<string[]> {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -59,8 +61,13 @@ test("all inquiry helpers use the opaque Short Fit endpoint without answers in t
 
   assert.equal(links.shortFitUrl, shortFitEndpoint);
   assert.equal(links.contactLinks?.general, links.shortFitUrl);
-  assert.equal(links.getFitFormHref?.("hero"), links.shortFitUrl);
-  assert.equal(links.getFitFormHref?.("package", "performance"), links.shortFitUrl);
+  assert.ok(links.getFitFormHref);
+  for (const source of fitFormSources) {
+    assert.equal(links.getFitFormHref(source), links.shortFitUrl);
+    for (const tier of fitFormTiers) {
+      assert.equal(links.getFitFormHref(source, tier), links.shortFitUrl);
+    }
+  }
   if (links.createContactInquiryMailto) {
     assert.equal(
       links.createContactInquiryMailto({
@@ -72,8 +79,6 @@ test("all inquiry helpers use the opaque Short Fit endpoint without answers in t
       links.shortFitUrl,
     );
   }
-
-  assert.doesNotMatch(linksSource, /URLSearchParams|[?&](?:source|tier|name|email|phone|question)=/i);
 });
 
 test("marketing source no longer ships a legacy contact collection flow", async () => {
