@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { ButtonLink } from "@/components/ui/button";
-import { getFitFormHref } from "@/lib/site-links";
+import { shortFitUrl } from "@/lib/site-links";
 import { policySections } from "@/lib/site-content";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -101,7 +101,7 @@ export default function PoliciesPage() {
                 Tell us your location, goals, and preferred level of support.
               </h2>
             </div>
-            <ButtonLink href={getFitFormHref("policies")} size="lg" className="shrink-0">
+            <ButtonLink href={shortFitUrl} size="lg" className="shrink-0">
               Apply for Coaching
             </ButtonLink>
           </div>

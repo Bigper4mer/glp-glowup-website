@@ -13,7 +13,7 @@ import { Navigation } from "@/components/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { ButtonLink } from "@/components/ui/button";
 import { Accordion } from "@/components/ui/accordion";
-import { getFitFormHref } from "@/lib/site-links";
+import { shortFitUrl } from "@/lib/site-links";
 import {
   coachingMethod,
   hiddenChallengeParagraphs,
@@ -47,11 +47,6 @@ const {
 });
 
 function PackageCard({ tier }: { tier: (typeof packageTiers)[number] }) {
-  const href = getFitFormHref(
-    "package",
-    tier.id as "foundation" | "performance" | "concierge"
-  );
-
   return (
     <article
       data-tier={tier.id}
@@ -118,7 +113,7 @@ function PackageCard({ tier }: { tier: (typeof packageTiers)[number] }) {
         </div>
       </details>
 
-      <ButtonLink href={href} className="mt-auto w-full">
+      <ButtonLink href={shortFitUrl} className="mt-auto w-full">
         Apply for {tier.title}
       </ButtonLink>
     </article>
@@ -157,7 +152,7 @@ export function HomePage() {
                 lean muscle, capability, and long-term follow-through.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <ButtonLink href={getFitFormHref("hero")} size="lg">
+                <ButtonLink href={shortFitUrl} size="lg">
                   Apply for Coaching
                 </ButtonLink>
                 <ButtonLink href="#programs" size="lg" variant="secondary">
@@ -354,7 +349,7 @@ export function HomePage() {
               </h2>
             </div>
             <ButtonLink
-              href={getFitFormHref("hero")}
+              href={shortFitUrl}
               size="lg"
               className="shrink-0 border-white bg-white text-brand-dark shadow-none hover:bg-brand-light"
             >

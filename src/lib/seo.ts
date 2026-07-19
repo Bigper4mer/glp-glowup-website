@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { contactEmail, siteUrl } from "@/lib/site-content";
+import { shortFitUrl } from "@/lib/site-links";
 
 export const siteName = "GLP GlowUp";
 export const defaultOgImagePath = "/og-image.jpg";
@@ -79,7 +80,7 @@ export function buildProfessionalServiceSchema() {
     availableChannel: [
       {
         "@type": "ServiceChannel",
-        serviceUrl: absoluteUrl("/fit-form"),
+        serviceUrl: shortFitUrl,
         availableLanguage: ["English"],
       },
     ],

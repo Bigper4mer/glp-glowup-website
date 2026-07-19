@@ -6,7 +6,6 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/fit-form/thank-you"],
     },
     sitemap: `${siteUrl}/sitemap.xml`,
     host: siteUrl,

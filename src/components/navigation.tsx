@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { ButtonLink } from "./ui/button";
 import { cn } from "@/lib/utils";
-import { getFitFormHref } from "@/lib/site-links";
+import { shortFitUrl } from "@/lib/site-links";
 
 const links = [
   { name: "How It Works", href: "/#method" },
@@ -77,7 +77,7 @@ export function Navigation() {
               {link.name}
             </Link>
           ))}
-          <ButtonLink href={getFitFormHref("nav-consult")} size="sm">
+          <ButtonLink href={shortFitUrl} size="sm">
             Apply for Coaching
           </ButtonLink>
         </nav>
@@ -114,7 +114,7 @@ export function Navigation() {
               </Link>
             ))}
             <div className="pt-4">
-              <ButtonLink href={getFitFormHref("nav-consult")} className="w-full">
+              <ButtonLink href={shortFitUrl} className="w-full">
                 Apply for Coaching
               </ButtonLink>
             </div>

@@ -4,7 +4,7 @@ import { MapPin, Monitor } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { ButtonLink } from "@/components/ui/button";
-import { getFitFormHref } from "@/lib/site-links";
+import { shortFitUrl } from "@/lib/site-links";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -38,7 +38,7 @@ export default function AboutPage() {
                 strength, body composition, movement quality, and the systems that make progress easier to sustain.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <ButtonLink href={getFitFormHref("about")} size="lg">
+                <ButtonLink href={shortFitUrl} size="lg">
                   Apply for Coaching
                 </ButtonLink>
                 <ButtonLink href="/#programs" size="lg" variant="secondary">
@@ -148,7 +148,7 @@ export default function AboutPage() {
               </h2>
             </div>
             <ButtonLink
-              href={getFitFormHref("about")}
+              href={shortFitUrl}
               size="lg"
               className="shrink-0 border-white bg-white text-brand-dark shadow-none hover:bg-brand-light"
             >

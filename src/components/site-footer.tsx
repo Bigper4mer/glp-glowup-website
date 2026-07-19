@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button";
 import { contactEmail } from "@/lib/site-content";
-import { contactLinks } from "@/lib/site-links";
+import { shortFitUrl } from "@/lib/site-links";
 
 export function SiteFooter() {
   return (
@@ -42,15 +42,13 @@ export function SiteFooter() {
           </div>
           <div>
             <h2 className="mb-6 text-sm font-semibold uppercase tracking-[0.14em] text-white">Start a Conversation</h2>
-            <a href={`mailto:${contactEmail}`} className="break-all text-white/65 transition-colors hover:text-white">
-              {contactEmail}
-            </a>
+            <p className="break-all text-white/65">{contactEmail}</p>
             <ButtonLink
-              href={contactLinks.general}
+              href={shortFitUrl}
               size="sm"
               className="mt-5 border-white/25 bg-white/8 text-white hover:border-white/40 hover:bg-white/12"
             >
-              Reach Out
+              Start Short Fit
             </ButtonLink>
           </div>
         </div>

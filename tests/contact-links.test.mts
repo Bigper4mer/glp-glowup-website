@@ -5,8 +5,6 @@ import test from "node:test";
 import ts from "typescript";
 
 const shortFitEndpoint = "https://shortfit.glpglowups.com";
-const fitFormSources = ["hero", "nav-consult", "floating-cta", "package", "about", "faq", "policies", "direct"] as const;
-const fitFormTiers = ["foundation", "performance", "concierge"] as const;
 
 async function readSourceFiles(directory: URL): Promise<string[]> {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -30,9 +28,6 @@ async function readOptional(path: URL): Promise<string> {
 
 type SiteLinks = {
   shortFitUrl?: string;
-  contactLinks?: { general?: string };
-  getFitFormHref?: (source: string, tier?: string) => string;
-  createContactInquiryMailto?: (values?: Record<string, string>) => string;
 };
 
 function evaluateSiteLinks(source: string): SiteLinks {
@@ -42,43 +37,58 @@ function evaluateSiteLinks(source: string): SiteLinks {
       target: ts.ScriptTarget.ES2022,
     },
   }).outputText;
-  const module = { exports: {} as SiteLinks };
+  const evaluatedModule = { exports: {} as SiteLinks };
   const requireStub = (specifier: string): Record<string, unknown> => {
     if (specifier === "./contact-inquiry") {
-      return { createContactInquiryMailtoHref: () => "stubbed-mailto-helper" };
+      return { createContactInquiryMailtoHref: () => "legacy-mailto" };
     }
     if (specifier === "./site-content") return { contactEmail: "synthetic@example.test" };
     throw new Error(`Unexpected site-links dependency: ${specifier}`);
   };
-
-  Function("require", "module", "exports", output)(requireStub, module, module.exports);
-  return module.exports;
+  Function("require", "module", "exports", output)(requireStub, evaluatedModule, evaluatedModule.exports);
+  return evaluatedModule.exports;
 }
 
-test("all inquiry helpers use the opaque Short Fit endpoint without answers in the URL", async () => {
+test("site links exports one opaque Short Fit endpoint without query parameters", async () => {
   const linksSource = await readFile(new URL("../src/lib/site-links.ts", import.meta.url), "utf8");
   const links = evaluateSiteLinks(linksSource);
 
   assert.equal(links.shortFitUrl, shortFitEndpoint);
-  assert.equal(links.contactLinks?.general, links.shortFitUrl);
-  assert.ok(links.getFitFormHref);
-  for (const source of fitFormSources) {
-    assert.equal(links.getFitFormHref(source), links.shortFitUrl);
-    for (const tier of fitFormTiers) {
-      assert.equal(links.getFitFormHref(source, tier), links.shortFitUrl);
-    }
+  assert.equal(new URL(links.shortFitUrl).search, "");
+  assert.doesNotMatch(linksSource, /URLSearchParams|contactLinks|createContactInquiry|getFitFormHref/);
+});
+
+test("every marketing inquiry CTA imports the canonical Short Fit URL", async () => {
+  const ctaFiles = [
+    "../src/components/home-page.tsx",
+    "../src/components/navigation.tsx",
+    "../src/components/site-footer.tsx",
+    "../src/components/ui/floating-cta.tsx",
+    "../src/app/about/page.tsx",
+    "../src/app/faq/page.tsx",
+    "../src/app/policies/page.tsx",
+  ];
+
+  for (const path of ctaFiles) {
+    const source = await readFile(new URL(path, import.meta.url), "utf8");
+    assert.match(source, /import \{ shortFitUrl \} from ["']@\/lib\/site-links["']/, path);
+    assert.match(source, /href=\{shortFitUrl\}/, path);
+    assert.doesNotMatch(source, /href=\{[^}]+\?(?:[^}]*)\}/, path);
   }
-  if (links.createContactInquiryMailto) {
-    assert.equal(
-      links.createContactInquiryMailto({
-        fullName: "Synthetic Person",
-        bestContact: "synthetic@example.test",
-        heardAbout: "Synthetic source",
-        question: "Synthetic question",
-      }),
-      links.shortFitUrl,
-    );
-  }
+});
+
+test("SEO surfaces keep marketing indexable and omit the retired internal route", async () => {
+  const sitemap = await readFile(new URL("../src/app/sitemap.ts", import.meta.url), "utf8");
+  const robots = await readFile(new URL("../src/app/robots.ts", import.meta.url), "utf8");
+  const layout = await readFile(new URL("../src/app/layout.tsx", import.meta.url), "utf8");
+  const seo = await readFile(new URL("../src/lib/seo.ts", import.meta.url), "utf8");
+
+  assert.doesNotMatch(`${sitemap}\n${robots}\n${seo}`, /\/fit-form/);
+  assert.match(robots, /allow:\s*["']\/["']/);
+  assert.doesNotMatch(robots, /disallow:/);
+  assert.match(layout, /index:\s*true/);
+  assert.match(layout, /follow:\s*true/);
+  assert.match(seo, /serviceUrl:\s*shortFitUrl/);
 });
 
 test("marketing source no longer ships a legacy contact collection flow", async () => {

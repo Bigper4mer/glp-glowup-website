@@ -5,7 +5,7 @@ import { Navigation } from "@/components/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { Accordion } from "@/components/ui/accordion";
 import { ButtonLink } from "@/components/ui/button";
-import { getFitFormHref } from "@/lib/site-links";
+import { shortFitUrl } from "@/lib/site-links";
 import { fullFaqItems } from "@/lib/site-content";
 import { buildFaqSchema, buildPageMetadata } from "@/lib/seo";
 
@@ -112,7 +112,7 @@ export default function FAQPage() {
                 <ArrowRight aria-hidden="true" className="h-4 w-4" />
               </Link>
             </div>
-            <ButtonLink href={getFitFormHref("faq")} size="lg" className="shrink-0">
+            <ButtonLink href={shortFitUrl} size="lg" className="shrink-0">
               Apply for Coaching
             </ButtonLink>
           </div>
