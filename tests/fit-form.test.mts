@@ -44,3 +44,17 @@ test("the two application steps cover every visible form field once", () => {
   assert.deepEqual(new Set(stepFields), new Set(visibleFields));
   assert.equal(stepFields.length, new Set(stepFields).size);
 });
+
+test("the retired marketing intake exposes no answer-bearing field template", () => {
+  const allowedTransportFields = new Set([
+    "form-name",
+    "bot-field",
+    "cta_source",
+    "page_path",
+  ]);
+
+  assert.deepEqual(
+    fitFormFieldNames.filter((field) => !allowedTransportFields.has(field)),
+    []
+  );
+});
