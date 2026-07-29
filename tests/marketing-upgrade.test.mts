@@ -114,3 +114,11 @@ test("the shared shell exposes a skip link and the mobile menu restores focus af
   assert.match(css, /\.skip-link/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
 });
+
+test("accent call-to-action descriptions meet the approved high-contrast text treatment", async () => {
+  const home = await read("../src/components/home-page.tsx");
+  const about = await read("../src/app/about/page.tsx");
+
+  assert.match(home, /max-w-2xl text-lg leading-relaxed text-white\/90/);
+  assert.match(about, /max-w-2xl text-lg leading-relaxed text-white\/90/);
+});

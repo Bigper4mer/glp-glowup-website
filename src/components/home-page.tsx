@@ -361,7 +361,7 @@ export function HomePage() {
               <h2 className="text-balance mt-4 max-w-3xl font-serif text-4xl font-medium leading-[1.02] tracking-[-0.04em] md:text-6xl">
                 You have already started the journey. Let us make it stronger.
               </h2>
-              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/80">
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/90">
                 Tell us where you are, what you are working toward, and what has been hardest to navigate. We will help
                 you determine the level of support that fits your needs.
               </p>

@@ -155,7 +155,7 @@ export default function AboutPage() {
               <h2 className="text-balance mt-4 max-w-3xl font-serif text-4xl font-medium tracking-[-0.04em] md:text-5xl">
                 Tell us where you are and what kind of support would help most.
               </h2>
-              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/80">
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/90">
                 Share your goals, your current challenges, and what you hope to feel or accomplish. We will help you
                 identify the most appropriate next step.
               </p>
