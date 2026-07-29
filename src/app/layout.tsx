@@ -56,6 +56,9 @@ export default function RootLayout({
       className={`${inter.variable} ${playfair.variable} antialiased h-full scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-sans text-brand-dark bg-brand-light">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         {children}
         <FloatingCTA />
       </body>

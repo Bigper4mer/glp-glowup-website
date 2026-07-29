@@ -16,7 +16,7 @@ export default function Page() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema).replace(/</g, "\\u003c") }}
       />
       <HomePage />
     </>

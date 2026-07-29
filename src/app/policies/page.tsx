@@ -5,6 +5,7 @@ import { Navigation } from "@/components/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { ButtonLink } from "@/components/ui/button";
 import { shortFitUrl } from "@/lib/site-links";
+import { primaryCtaLabel } from "@/lib/site-links";
 import { policySections } from "@/lib/site-content";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -35,18 +36,18 @@ export default function PoliciesPage() {
   return (
     <>
       <Navigation />
-      <main className="bg-brand-paper pt-20">
+      <main id="main-content" tabIndex={-1} className="bg-brand-paper pt-20">
         <section className="border-b border-brand-line bg-brand-light px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_0.72fr] lg:items-end">
             <div>
-              <p className="editorial-label">Policies & service standards</p>
+              <p className="editorial-label">Policies & Service Standards</p>
               <h1 className="text-balance mt-5 max-w-4xl font-serif text-5xl font-medium leading-[0.98] tracking-[-0.05em] text-brand-dark md:text-7xl">
-                Clear expectations for coaching, scheduling, billing, and privacy.
+                Clear expectations so you always know what to expect.
               </h1>
             </div>
             <p className="max-w-xl text-lg leading-relaxed text-brand-muted lg:justify-self-end">
-              Review these standards before applying so the service area, commitment, communication, and coaching scope
-              are easy to understand.
+              Please review these standards before enrolling. They explain the service area, scheduling,
+              communication, billing, and coaching scope so we can begin with clarity on both sides.
             </p>
           </div>
         </section>
@@ -54,7 +55,7 @@ export default function PoliciesPage() {
         <div className="px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
           <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.34fr_0.66fr]">
             <aside className="lg:sticky lg:top-28 lg:self-start">
-              <p className="editorial-label">On this page</p>
+              <p className="editorial-label">On This Page</p>
               <nav aria-label="Policy sections" className="mt-5 border-t border-brand-line">
                 {policySections.map((section) => (
                   <Link
@@ -75,7 +76,9 @@ export default function PoliciesPage() {
                   id={getPolicyId(section.title)}
                   className="scroll-mt-28 border-t border-brand-line pt-8"
                 >
-                  <p className="font-serif text-xl text-brand-accent">0{index + 1}</p>
+                  <p className="font-serif text-xl text-brand-accent">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
                   <h2 className="mt-3 font-serif text-3xl font-semibold tracking-[-0.035em] text-brand-dark md:text-4xl">
                     {section.title}
                   </h2>
@@ -96,13 +99,13 @@ export default function PoliciesPage() {
         <section className="bg-brand-dark px-4 py-20 text-white sm:px-6 lg:px-8">
           <div className="mx-auto flex max-w-6xl flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-accent-soft">Confirm your fit</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-accent-soft">Ready to Begin?</p>
               <h2 className="text-balance mt-4 max-w-3xl font-serif text-4xl font-medium tracking-[-0.04em] md:text-5xl">
-                Tell us your location, goals, and preferred level of support.
+                Tell us your location, goals, and the kind of support you are looking for.
               </h2>
             </div>
             <ButtonLink href={shortFitUrl} size="lg" className="shrink-0">
-              Apply for Coaching
+              {primaryCtaLabel}
             </ButtonLink>
           </div>
         </section>

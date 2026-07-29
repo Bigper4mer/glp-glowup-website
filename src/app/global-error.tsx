@@ -11,7 +11,7 @@ export default function GlobalError({
   return (
     <html lang="en">
       <body className="flex min-h-screen items-center bg-brand-light px-4 font-sans text-brand-dark">
-        <main className="mx-auto max-w-3xl text-center">
+        <main id="main-content" tabIndex={-1} className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-accent">
             Something interrupted the page
           </p>

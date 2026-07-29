@@ -7,7 +7,11 @@ export default function NotFound() {
   return (
     <>
       <Navigation />
-      <main className="flex min-h-[70vh] items-center bg-brand-light px-4 pb-20 pt-32 sm:px-6 lg:px-8">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="flex min-h-[70vh] items-center bg-brand-light px-4 pb-20 pt-32 sm:px-6 lg:px-8"
+      >
         <section className="mx-auto max-w-4xl text-center">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-accent">Page not found</p>
           <h1 className="text-balance mt-5 font-serif text-5xl font-medium tracking-[-0.05em] text-brand-dark md:text-7xl">

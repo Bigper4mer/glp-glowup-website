@@ -19,37 +19,37 @@ export type PackageTier = {
 };
 
 export const hiddenChallengeParagraphs = [
-  "Weight loss and body composition are not the same goal.",
-  "When appetite and body weight change quickly, consistent strength training, adequate protein, recovery, and everyday movement can become harder to manage.",
-  "Without a practical system, people can reach a lower number on the scale while feeling less strong, less capable, or unsure how to maintain their progress.",
-  "GLP GlowUp adds the coaching structure around the medication conversation: a strength-first plan, protein-focused guidance, and consistent accountability.",
-  "Medication decisions remain with your prescribing clinician. Our role is to help you train, eat, recover, and follow through with greater clarity.",
+  "Losing weight is only part of the transformation.",
+  "As your appetite and body weight change, it can become harder to eat enough protein, train consistently, recover well, and stay active.",
+  "Without a clear plan, the number on the scale may go down while your strength, energy, and confidence decline with it.",
+  "GLP GlowUp helps you protect what matters by bringing strength training, protein-focused guidance, daily movement, recovery, and weekly accountability into one personalized strategy.",
+  "Your prescribing clinician remains responsible for all medication decisions. Our role is to support the training, nutrition habits, movement, recovery, and follow-through that help you build a stronger result.",
 ];
 
 export const coachingMethod = [
   {
     number: "01",
-    title: "Assess the whole picture",
+    title: "Start by Understanding You",
     description:
-      "We begin with your goals, health and movement history, current habits, schedule, training experience, and available support.",
+      "We begin by understanding your goals, health and movement history, current habits, schedule, training experience, challenges, and the support you already have.",
   },
   {
     number: "02",
-    title: "Build your Success Map",
+    title: "Build Your Personal Success Map",
     description:
-      "Your coaching plan connects strength training, protein-focused nutrition, daily movement, recovery, and realistic milestones.",
+      "Your Success Map brings together strength training, protein-focused nutrition, daily movement, recovery, and realistic milestones in a plan built specifically for you.",
   },
   {
     number: "03",
-    title: "Coach the weekly reality",
+    title: "Support You Through Real Life",
     description:
-      "Regular check-ins help identify friction early and keep the plan aligned with appetite changes, travel, stress, and real life.",
+      "Some weeks feel easier than others. Regular check-ins help us adjust for appetite changes, travel, stress, low energy, and unexpected setbacks without judgment or guesswork.",
   },
   {
     number: "04",
-    title: "Create a durable system",
+    title: "Build Confidence That Lasts",
     description:
-      "The long-term aim is confidence and repeatable habits, not dependence on a perfect week or constant motivation.",
+      "Over time, you will understand your body more clearly, make better decisions with less uncertainty, and build habits you can continue using independently.",
   },
 ];
 
@@ -103,39 +103,39 @@ export const packageTiers: PackageTier[] = [
     subtitle: "Remote Coaching",
     price: "$649",
     bestFor:
-      "Clients who want expert structure, accountability, and guidance with minimal appointments.",
+      "You want expert direction and accountability without adding frequent appointments to your schedule.",
     summary: [
-      "60-minute virtual start session",
-      "Training plan build and Success Map review",
-      "Weekly asynchronous check-in and strategy coaching",
-      "Email and message support",
-      "Monthly progression strategy after month one",
+      "60-minute virtual onboarding and goal-setting session",
+      "Personalized training plan and Success Map",
+      "Weekly Scorecard Check-In & Strategy Review",
+      "Email and message support between check-ins",
+      "Monthly Progress Review & Updated Plan beginning in Month 2",
     ],
     details: [
       {
-        heading: "60-Minute Virtual Start Session",
+        heading: "60-Minute Virtual Onboarding & Goal-Setting Session",
         body:
-          "A detailed review of health and movement history, goals, habits, step targets, protein intake, sleep, lifestyle demands, and personal constraints. This establishes your customized Success Map.",
+          "We take time to understand your health and movement history, goals, current habits, protein intake, activity, sleep, schedule, and personal constraints. Together, these details shape a clear Success Map built for your real life.",
       },
       {
-        heading: "Training Plan Build & Success Map Review",
+        heading: "Personalized Training Plan & Success Map",
         body:
-          "A personalized program built around your unique needs to support fat loss, protect lean muscle, improve consistency, and reduce injury risk.",
+          "Your personalized plan gives you clear strength, movement, and nutrition priorities to support healthy fat loss, protect lean muscle, improve consistency, and reduce avoidable injury risk.",
       },
       {
-        heading: "Weekly Asynchronous Check-In & Strategy Coaching",
+        heading: "Weekly Scorecard Check-In & Strategy Review",
         body:
-          "Focused weekly reviews identify setbacks early, make timely adjustments, and keep progress moving forward.",
+          "Each week, you share what is working, what feels difficult, and where you need help. We review the details, adjust the strategy, and give you a clear focus for the week ahead.",
       },
       {
         heading: "Email & Message Support",
         body:
-          "Ongoing support to answer questions, reinforce accountability, and guide implementation throughout the month.",
+          "Ask questions, receive guidance, and stay connected between check-ins so you are never left guessing about your next step.",
       },
       {
-        heading: "Monthly Progression Strategy - Month 2 and Beyond",
+        heading: "Monthly Progress Review & Updated Plan - Month 2 and Beyond",
         body:
-          "Set bold new goals, refine the strategy, and step confidently into the next phase.",
+          "Beginning in Month 2, we review your progress, set meaningful new goals, and update the plan so your coaching continues to grow with you.",
       },
     ],
   },
@@ -146,100 +146,100 @@ export const packageTiers: PackageTier[] = [
     price: "$1,299",
     featured: true,
     bestFor:
-      "Clients who want expert coaching, hands-on correction, and higher support to protect lean muscle, improve technique, and reduce injury risk.",
+      "You want personalized coaching plus hands-on guidance to improve technique, train safely, and protect lean muscle.",
     summary: [
-      "60-minute in-person onboarding in month one",
-      "Training plan build and Success Map review",
-      "Two weekly asynchronous strategy touchpoints during non-session weeks",
-      "Two 60-minute in-person sessions per month",
-      "Higher-touch support messaging",
+      "60-minute in-person onboarding in Month 1",
+      "Personalized training plan and Success Map",
+      "Two Personal Strategy Check-Ins during non-session weeks",
+      "Two 60-minute in-person coaching sessions each month",
+      "Higher-touch message support between sessions",
     ],
     details: [
       {
         heading: "60-Minute In-Person Onboarding - Month 1",
         body:
-          "Includes a health and movement history review, functional movement assessment, and body composition discussion to identify limitations, pain triggers, asymmetries, and technique needs. This creates a clearer coaching plan.",
+          "We begin with your health and movement history, goals, current challenges, functional movement, and body composition priorities. This helps us understand your starting point and build a safer, more effective coaching plan.",
       },
       {
-        heading: "Training Plan Build & Success Map Review",
+        heading: "Personalized Training Plan & Success Map",
         body:
-          "A personalized program for fat loss support, lean muscle priorities, strength, movement quality, and sustainable progress.",
+          "Your personalized plan brings together fat-loss support, lean-muscle priorities, strength, movement quality, and realistic strategies you can sustain.",
       },
       {
-        heading: "Two Weekly Asynchronous Check-Ins & Strategy Coaching Touchpoints",
+        heading: "Two Personal Strategy Check-Ins During Non-Session Weeks",
         body:
-          "Provided during non-in-person session weeks to maintain accountability, catch setbacks early, and keep momentum moving.",
+          "During the two weeks each month when we do not meet in person, you complete a focused check-in so we can address challenges early, adjust the plan, and keep you moving forward.",
       },
       {
-        heading: "Two 60-Minute In-Person Sessions Per Month",
+        heading: "Two 60-Minute In-Person Coaching Sessions Per Month",
         body:
-          "Available at a gym, office, home, or agreed-upon location. Sessions focus on program execution, progression, expert movement analysis, and exercise technique optimization.",
+          "Sessions can take place at a gym, office, home, or another agreed-upon location. We use this time to coach your program, refine your technique, progress exercises, and help you feel more confident in how you move.",
       },
       {
-        heading: "Higher-Touch Support Messaging",
+        heading: "Higher-Touch Message Support",
         body:
-          "Faster reply windows and proactive course corrections to help you stay supported between sessions.",
+          "Receive faster responses and more frequent guidance so you continue to feel supported between in-person sessions.",
       },
       {
-        heading: "Monthly Progression Strategy - Month 2 and Beyond",
+        heading: "Monthly Progress Review & Updated Plan - Month 2 and Beyond",
         body:
-          "Set new goals, refine the strategy, and step into the next phase with a clearer plan.",
+          "Beginning in Month 2, we review your progress, set meaningful new goals, and update the strategy for the next phase.",
       },
     ],
   },
   {
     id: "concierge",
     title: "Concierge",
-    subtitle: "Elite Coaching",
+    subtitle: "Fully Guided Coaching",
     price: "$1,899",
     bestFor:
-      "Clients who want the highest level of support, personalization, and protection against setbacks with a fully guided experience.",
+      "You want the highest level of personal attention, frequent in-person coaching, and recovery support throughout the process.",
     summary: [
-      "90-minute in-person elite onboarding in month one",
-      "Highly personalized training plan and Success Map review",
-      "Four 60-minute in-person sessions per month",
-      "Priority support messaging",
-      "Two monthly recovery credits",
+      "90-minute comprehensive in-person onboarding in Month 1",
+      "Highly personalized training plan and Success Map",
+      "Four 60-minute in-person coaching sessions each month",
+      "Priority message support between sessions",
+      "Two recovery and performance credits each month",
     ],
     details: [
       {
-        heading: "90-Minute In-Person Elite Onboarding - Month 1",
+        heading: "90-Minute Comprehensive In-Person Onboarding - Month 1",
         body:
-          "Includes a detailed health and movement history, sports-performance assessment, movement analysis, and body composition discussion to identify compensations, pain triggers, recovery bottlenecks, mobility restrictions, and technique needs.",
+          "We take a deeper look at your health and movement history, goals, body composition priorities, movement patterns, recovery, mobility, and technique needs. This gives us the clearest possible starting point for a highly personalized plan.",
       },
       {
-        heading: "Training Plan Build & Success Map Review",
+        heading: "Highly Personalized Training Plan & Success Map",
         body:
-          "A highly personalized program for fat loss support, lean muscle priorities, strength, movement quality, and long-term consistency.",
+          "Your plan is built around your body, goals, schedule, experience, and current challenges to support fat loss, protect lean muscle, improve strength, and create long-term consistency.",
       },
       {
-        heading: "Four 60-Minute In-Person Sessions Per Month",
+        heading: "Four 60-Minute In-Person Coaching Sessions Per Month",
         body:
-          "Ideally scheduled weekly. Sessions focus on execution, progression, movement analysis, technique optimization, and continued refinement.",
+          "Sessions are ideally scheduled weekly so we can coach execution, progress your program, refine technique, and make ongoing adjustments as your needs change.",
       },
       {
-        heading: "Priority Support Messaging",
+        heading: "Priority Message Support",
         body:
-          "Higher-touch communication, faster replies, and proactive course corrections.",
+          "Stay closely connected with faster replies, more frequent guidance, and timely adjustments between sessions.",
       },
       {
-        heading: "Monthly Progression Strategy - Month 2 and Beyond",
+        heading: "Monthly Progress Review & Updated Plan - Month 2 and Beyond",
         body:
-          "Set goals, refine the strategy, and move into the next phase with clarity.",
+          "Each month, we review what has changed, set meaningful new goals, and update the plan so you can move into the next phase with confidence.",
       },
       {
-        heading: "Two Recovery Credits Per Month",
+        heading: "Two Recovery & Performance Credits Per Month",
         body:
-          "Credits may be applied toward select recovery, performance, or technique-support services within the active program month.",
+          "Use your credits for eligible recovery, performance, or movement-support services during the active program month.",
       },
     ],
     recoveryOptions: [
-      "Thermotek Infrared Therapy - 30 minutes, in-person",
-      "3B Cold Laser - 30 minutes, in-person",
-      "Myofascial Release - 30 minutes, in-person",
-      "Graston/HawkGrips Soft Tissue Recovery Session - 30 minutes, in-person",
-      "Bodywork or Percussive Sports Massage - 30 minutes, in-person",
-      "Virtual Expert Exercise Movement Analysis & Technique Optimization - 30 minutes",
+      "Stretch Session - 30 minutes, in person",
+      "3B Cold Laser - 30 minutes, in person",
+      "Myofascial Release - 30 minutes, in person",
+      "Graston/HawkGrips Soft Tissue Recovery Session - 30 minutes, in person",
+      "Bodywork or Percussive Recovery Session - 30 minutes, in person",
+      "Virtual Exercise Movement Review & Technique Coaching - 30 minutes",
       "Kinesiotape Application*",
       "TENS Unit Application - 10 minutes*",
     ],
@@ -250,78 +250,84 @@ export const packageTiers: PackageTier[] = [
 
 export const homeFaqItems = [
   {
-    question: "What is GLP-1 Body Composition Coaching?",
+    question: "What is GLP Body Composition Coaching?",
     answer:
-      "We run GLP-1 weight loss like a body recomposition project: helping you support fat loss while protecting strength and lean mass through structured training, protein-first targets, and weekly accountability.",
+      "GLP Body Composition Coaching helps you make the most of your weight-loss journey by pairing strength-first training, protein-focused nutrition guidance, and weekly accountability. The goal is not only to lose fat, but also to protect lean muscle, build strength, and create habits you can maintain.",
   },
   {
-    question: "Do you prescribe GLP-1 medications?",
+    question: "Do you prescribe GLP medications?",
     answer:
-      "No. We do not prescribe or manage medications. If you are using GLP-1s, that medication plan is managed by your prescribing clinician. We focus on training, nutrition habits, movement, and accountability within the coaching scope.",
+      "No. GLP GlowUp does not prescribe or manage medication. Your prescribing clinician remains responsible for medication decisions and side-effect management. We focus on strength training, nutrition habits, movement, recovery, and accountability within the coaching scope.",
   },
   {
     question: "Do I need to be local to participate?",
     answer:
-      "Foundation is fully remote. Performance and Concierge include in-person onboarding, assessments, and sessions, so you need to be able to visit the Philadelphia and South Jersey service area. In-person sessions are available at a gym, office, home, or agreed-upon location; any gym day-pass or facility fees are the client's responsibility.",
+      "No. Foundation is fully remote and available outside the local area. Performance and Concierge include in-person onboarding and coaching, so you must be able to meet within the Philadelphia and South Jersey service area. Sessions may take place at a gym, office, home, or another agreed-upon location. Any gym day-pass or facility fee is the client's responsibility.",
   },
 ];
 
 export const fullFaqItems = [
-  ...homeFaqItems,
   {
-    question: "How does the program work and is it easy to follow?",
+    question: "What is GLP Body Composition Coaching?",
     answer:
-      "Yes. You begin with a start session or onboarding assessment, then receive a clear Success Map, training plan, protein-first targets, step goals, and weekly check-ins. The rhythm is intentionally structured so you know what to do next without guesswork.",
+      "GLP Body Composition Coaching pairs strength-first training, protein-focused nutrition guidance, and weekly accountability to help you lose fat while protecting lean muscle, strength, and long-term confidence.",
+  },
+  homeFaqItems[1],
+  homeFaqItems[2],
+  {
+    question: "How does the program work, and is it easy to follow?",
+    answer:
+      "Yes. You begin with an onboarding session, then receive a clear Success Map, personalized training plan, protein-focused targets, movement goals, and regular check-ins. The program is intentionally structured so you know what to focus on, why it matters, and what to do next.",
   },
   {
     question: "Who is this program for?",
     answer:
-      "It is for people using, planning to use, or considering GLP-1 medications who want fat loss support without unnecessary strength loss. It is also for clients who want a real-life plan, accountability, and a stronger body after the weight comes off.",
+      "This program is designed for people who are using, preparing to use, or considering GLP medication and want a plan to lose fat while protecting strength and lean muscle. It is also a strong fit for anyone who wants practical guidance, accountability, and a body they feel more confident maintaining after the weight comes off.",
   },
   {
-    question: "Do I have to be on a GLP-1 to do this program?",
+    question: "Do I have to be using a GLP medication to join?",
     answer:
-      "No. The same body recomposition system can support fat loss, strength, and consistency even if you are not on a GLP-1. If you are considering medication, the program can help you build the foundation before or during that decision.",
+      "No. The same strength-first body composition approach can support fat loss, strength, and consistency even when you are not using a GLP medication. If you are considering medication, coaching can help you build a stronger foundation before or during that decision.",
   },
   {
-    question: "What makes you different from a typical GLP-1 program?",
+    question: "What makes GLP GlowUp different from a typical GLP program?",
     answer:
-      "Many programs focus primarily on medication and weigh-ins. GLP GlowUp focuses on strength-first training, movement quality, thoughtful exercise selection, protein-focused nutrition, weekly adjustments, and real-world execution.",
+      "Many programs focus primarily on medication and the number on the scale. GLP GlowUp focuses on what helps you become stronger and more capable: personalized strength training, thoughtful exercise selection, protein-focused nutrition guidance, regular adjustments, and support that works in real life.",
   },
   {
     question: "Do I need to work out at a gym?",
     answer:
-      "No. Plans can be built for home or gym training depending on your equipment, schedule, injury history, and preferences.",
+      "No. Your plan can be built for home, a gym, or a combination of both based on your available equipment, schedule, movement history, experience, and preferences.",
   },
   {
     question: "How do weekly check-ins work?",
     answer:
-      "You submit a short check-in with the key progress details. We review it and reply with the next week's adjustments for training, nutrition, habits, and strategy.",
+      "You complete a brief Scorecard that shows what is working, where you are struggling, and what has changed. We review it and respond with clear adjustments for your training, nutrition habits, movement, and next-week strategy.",
   },
   {
-    question: "What does hybrid mean in Performance?",
+    question: "What does hybrid coaching mean in the Performance program?",
     answer:
-      "Hybrid means you receive structured remote coaching and check-ins plus in-person sessions for technique, program execution, movement upgrades, and hands-on feedback.",
+      "Hybrid coaching combines remote guidance and personal check-ins with two in-person sessions each month. The in-person sessions are used to coach technique, progress your program, improve movement, and give you direct feedback.",
   },
   {
-    question: "Where do in-person sessions happen?",
+    question: "Where do in-person sessions take place?",
     answer:
-      "In-person sessions may happen at a gym, office, home, or agreed-upon location. Any gym day-pass or facility fees are the client's responsibility.",
+      "In-person sessions may take place at a gym, office, home, or another agreed-upon location. Any gym day-pass or facility fee is the client's responsibility.",
   },
   {
     question: "What if I have pain or an old injury?",
     answer:
-      "Performance and Concierge include movement and orthopedic or sports-performance assessment elements to help identify limitations and build a safer coaching strategy.",
+      "Your health and movement history, current symptoms, and exercise limitations are considered when building the plan. Performance and Concierge also include in-person movement assessment and coaching to help select appropriate exercises and modify technique. New, worsening, or concerning symptoms may require evaluation by an appropriate medical provider.",
   },
   {
-    question: "Can I do Foundation remotely if I am out of state?",
+    question: "Can I complete Foundation remotely if I live out of state?",
     answer:
-      "Yes. Foundation is fully remote at the same price. You can self-report scale weight, photos, measurements, and training feedback, with optional local Dexa or BIA testing if available.",
+      "Yes. Foundation is fully remote and offered at the same price. You can share scale weight, photos, measurements, and training feedback from home, with optional local DEXA or BIA testing when available.",
   },
   {
-    question: "Can I use HSA/FSA or insurance?",
+    question: "Can I use insurance, HSA, or FSA funds?",
     answer:
-      "Programs are cash-pay and out-of-network. A superbill can be provided upon request, but reimbursement is not guaranteed. HSA/FSA eligibility varies, so confirm directly with your plan administrator.",
+      "Programs are cash-pay and out of network. A superbill can be provided upon request, but reimbursement is not guaranteed. HSA and FSA eligibility vary, so please confirm directly with your plan administrator before enrolling.",
   },
 ];
 
@@ -331,8 +337,8 @@ export const policySections = [
     items: [
       "Foundation is delivered remotely.",
       "Performance and Concierge include in-person sessions within the Philadelphia and South Jersey service area.",
-      "Appointments are generally available Monday through Friday from 9 AM to 5 PM unless otherwise stated.",
-      "Weekly check-ins should be submitted on Sunday. Feedback is typically provided within 1-2 business days.",
+      "Appointments are generally available Monday through Friday from 9:00 AM to 5:00 PM unless otherwise stated.",
+      "Weekly Scorecards are due each Sunday. Feedback is typically provided within 1-2 business days.",
     ],
   },
   {
@@ -340,72 +346,72 @@ export const policySections = [
     items: [
       "In-person sessions are available within a 30-mile radius of Philadelphia, Cherry Hill, Moorestown, and Haddonfield.",
       "Sessions outside that radius may be available on a limited basis with a travel add-on. Availability and pricing must be confirmed before scheduling.",
-      "In-person sessions may be at a gym, office, home, or agreed-upon location. Any gym day-pass or facility fees are the client's responsibility.",
+      "In-person sessions may take place at a gym, office, home, or another agreed-upon location. Any gym day-pass or facility fee is the client's responsibility.",
     ],
   },
   {
     title: "Communication & Response Times",
     items: [
-      "Support is provided through secure messaging, email, and coaching tools.",
-      "Response times vary by tier, with an aim of 1-2 business days during business hours.",
-      "Communication covers coaching guidance, accountability, and plan adjustments. It is not for urgent medical concerns.",
+      "Support is provided through secure messaging, email, and approved coaching tools.",
+      "Response times vary by program. Our standard goal is to reply within 1-2 business days during business hours.",
+      "Communication is for coaching guidance, accountability, questions, and plan adjustments. It is not intended for urgent or time-sensitive medical concerns.",
     ],
   },
   {
-    title: "Cancellation, Rescheduling, and Missed Sessions",
+    title: "Cancellation, Rescheduling & Missed Sessions",
     items: [
-      "Please provide at least 24 hours notice for cancellations or rescheduling.",
-      "Sessions cancelled with less than 24 hours notice may be forfeited.",
-      "If GLP GlowUp needs to reschedule, the earliest reasonable alternative will be offered.",
+      "Please provide at least 24 hours' notice for cancellations or rescheduling.",
+      "Sessions canceled with less than 24 hours' notice may be forfeited.",
+      "If GLP GlowUp needs to reschedule, we will offer the earliest reasonable alternative.",
     ],
   },
   {
-    title: "Monthly Services & Use-It-Or-Lose-It Policy",
+    title: "Monthly Services & Rollover Policy",
     items: [
-      "Monthly sessions, check-ins, and services are active within the current program month.",
-      "Unused services do not roll over to future months.",
-      "This policy protects consistency, momentum, and outcome quality.",
+      "Monthly sessions, check-ins, recovery credits, and services are active only within the current program month.",
+      "Unused services expire at the end of the active program month and do not roll over to future months.",
+      "This structure helps protect consistency, momentum, and the quality of your coaching experience.",
     ],
   },
   {
-    title: "Payments, Billing, and Minimum Commitment",
+    title: "Payments, Billing & Minimum Commitment",
     items: [
-      "Programs are cash-pay and out-of-network monthly subscriptions unless otherwise stated.",
+      "Programs are cash-pay, out-of-network monthly subscriptions unless otherwise stated.",
       "A 3-month minimum commitment applies.",
-      "After the minimum commitment, programs continue month-to-month unless cancelled at least 7 days before the next billing date.",
-      "All package purchases are final once completed.",
+      "After the minimum commitment, programs continue month to month unless canceled at least 7 days before the next billing date.",
+      "All completed program and package purchases are final and non-refundable.",
     ],
   },
   {
     title: "Add-Ons & Recovery Credits",
     items: [
-      "Concierge recovery credits are active within the current program month.",
-      "Recovery credits may be used for eligible recovery, performance, or technique-support services.",
-      "Recovery and performance services are not medical care.",
+      "Concierge recovery credits are active only within the current program month.",
+      "Recovery credits may be used for eligible recovery, performance, or movement-support services.",
+      "Recovery and performance services are supportive coaching services and are not medical care.",
     ],
   },
   {
-    title: "Out-of-Network, Superbills, and HSA/FSA",
+    title: "Out-of-Network, Superbills & HSA/FSA",
     items: [
       "A superbill can be provided upon request.",
       "Reimbursement is not guaranteed.",
-      "Clients should verify insurance, HSA, or FSA eligibility directly with their plan administrator.",
+      "Clients should verify insurance, HSA, or FSA eligibility directly with their plan administrator before enrolling.",
     ],
   },
   {
     title: "Scope of Services & Safety",
     items: [
-      "GLP GlowUp provides coaching for training, movement, body composition behaviors, habit systems, and performance support.",
-      "We do not prescribe medications, diagnose conditions, or manage medication side effects.",
-      "Concerning symptoms should be directed to your prescribing clinician or appropriate medical care.",
+      "GLP GlowUp provides educational coaching for strength training, movement, body-composition habits, nutrition behaviors, accountability, and performance support.",
+      "We do not prescribe medications, diagnose or treat medical conditions, or manage medication side effects.",
+      "New, worsening, or concerning symptoms should be directed to your prescribing clinician or another appropriate medical provider.",
     ],
   },
   {
     title: "Application Data & Privacy",
     items: [
-      "Application information is used to review coaching fit, respond to your inquiry, and prepare for a potential fit call.",
-      "Form submissions may be processed by the website hosting and communication providers used to receive and review applications.",
-      "Share only information that is relevant to coaching fit. Do not use the application for urgent concerns or time-sensitive medical information.",
+      "Application information is used to understand your goals, review whether the program may be appropriate, respond to your inquiry, and prepare for a possible introductory call.",
+      "Form submissions may be processed by the website-hosting and communication providers used to receive and review inquiries.",
+      "Share only information that is relevant to your coaching inquiry. Do not use the form for urgent concerns or time-sensitive medical information.",
       "If you enroll, any additional information collected for service delivery will be addressed through the applicable coaching agreements and intake process.",
     ],
   },

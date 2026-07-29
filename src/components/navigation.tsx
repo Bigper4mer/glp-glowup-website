@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import { ButtonLink } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { shortFitUrl } from "@/lib/site-links";
+import { primaryCtaLabel } from "@/lib/site-links";
 
 const links = [
   { name: "How It Works", href: "/#method" },
@@ -19,6 +20,7 @@ export function Navigation() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const menuButtonRef = React.useRef<HTMLButtonElement>(null);
   const isHome = pathname === "/";
   const showSolid = isScrolled || !isHome || isMobileMenuOpen;
 
@@ -37,6 +39,7 @@ export function Navigation() {
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsMobileMenuOpen(false);
+        window.requestAnimationFrame(() => menuButtonRef.current?.focus());
       }
     };
 
@@ -78,12 +81,13 @@ export function Navigation() {
             </Link>
           ))}
           <ButtonLink href={shortFitUrl} size="sm">
-            Apply for Coaching
+            {primaryCtaLabel}
           </ButtonLink>
         </nav>
 
         <button
           type="button"
+          ref={menuButtonRef}
           aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-navigation"
@@ -115,7 +119,7 @@ export function Navigation() {
             ))}
             <div className="pt-4">
               <ButtonLink href={shortFitUrl} className="w-full">
-                Apply for Coaching
+                {primaryCtaLabel}
               </ButtonLink>
             </div>
           </nav>

@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { Accordion } from "@/components/ui/accordion";
 import { ButtonLink } from "@/components/ui/button";
 import { shortFitUrl } from "@/lib/site-links";
+import { primaryCtaLabel } from "@/lib/site-links";
 import { fullFaqItems } from "@/lib/site-content";
 import { buildFaqSchema, buildPageMetadata } from "@/lib/seo";
 
@@ -21,20 +22,20 @@ const faqSchema = buildFaqSchema(fullFaqItems);
 const faqCategories = [
   {
     id: "getting-started",
-    title: "Getting started",
-    description: "What the coaching is, who it is for, and how it differs.",
+    title: "Getting Started",
+    description: "A clear overview of who the program serves, how it works, and what makes it different.",
     items: fullFaqItems.slice(0, 6),
   },
   {
     id: "coaching-experience",
-    title: "The coaching experience",
-    description: "Training, check-ins, hybrid support, and working around limitations.",
+    title: "The Coaching Experience",
+    description: "What training, check-ins, in-person support, and personalized adjustments look like in practice.",
     items: fullFaqItems.slice(6, 11),
   },
   {
     id: "location-and-billing",
-    title: "Location, access & billing",
-    description: "Remote eligibility, in-person service area, insurance, and practical details.",
+    title: "Location, Access & Billing",
+    description: "Practical information about remote eligibility, the local service area, insurance, and payment.",
     items: fullFaqItems.slice(11),
   },
 ];
@@ -44,21 +45,21 @@ export default function FAQPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }}
       />
       <Navigation />
-      <main className="bg-brand-light pt-20">
+      <main id="main-content" tabIndex={-1} className="bg-brand-light pt-20">
         <section className="border-b border-brand-line px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_0.72fr] lg:items-end">
             <div>
-              <p className="editorial-label">Frequently asked questions</p>
+              <p className="editorial-label">Frequently Asked Questions</p>
               <h1 className="text-balance mt-5 max-w-4xl font-serif text-5xl font-medium leading-[0.98] tracking-[-0.05em] text-brand-dark md:text-7xl">
-                Clear answers before you choose a coaching program.
+                Answers to help you feel confident about your next step.
               </h1>
             </div>
             <p className="max-w-xl text-lg leading-relaxed text-brand-muted lg:justify-self-end">
-              Learn how the coaching works, where in-person support is available, and what stays within your medical
-              provider’s scope.
+              Learn how coaching works, what support is included, where in-person sessions are available, and what
+              remains with your prescribing clinician.
             </p>
           </div>
         </section>
@@ -100,20 +101,22 @@ export default function FAQPage() {
         <section className="bg-brand-dark px-4 py-20 text-white sm:px-6 lg:px-8">
           <div className="mx-auto flex max-w-6xl flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-accent-soft">Still deciding?</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-accent-soft">
+                Still Have Questions?
+              </p>
               <h2 className="text-balance mt-4 max-w-3xl font-serif text-4xl font-medium tracking-[-0.04em] md:text-5xl">
-                Share your goals and we will recommend the most appropriate next step.
+                Tell us what you are working toward, and we will help you find the most appropriate next step.
               </h2>
               <Link
                 href="/policies"
                 className="mt-6 inline-flex min-h-11 items-center gap-2 font-semibold text-white/75 underline decoration-brand-accent-soft/60 underline-offset-6 hover:text-white"
               >
-                Review service area and policies
+                Review Service Area & Policies
                 <ArrowRight aria-hidden="true" className="h-4 w-4" />
               </Link>
             </div>
             <ButtonLink href={shortFitUrl} size="lg" className="shrink-0">
-              Apply for Coaching
+              {primaryCtaLabel}
             </ButtonLink>
           </div>
         </section>

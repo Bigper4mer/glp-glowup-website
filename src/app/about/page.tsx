@@ -5,6 +5,7 @@ import { Navigation } from "@/components/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { ButtonLink } from "@/components/ui/button";
 import { shortFitUrl } from "@/lib/site-links";
+import { primaryCtaLabel } from "@/lib/site-links";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -15,34 +16,35 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 const coachingStandards = [
-  "Understand the person before building a coaching strategy.",
-  "Prioritize strength, movement quality, and practical execution.",
-  "Use clear expectations and consistent feedback instead of hype.",
-  "Keep medication decisions with the client and prescribing clinician.",
+  "Understand your goals, body, history, and real-life challenges before building your plan.",
+  "Prioritize strength, confident movement, and strategies you can realistically follow.",
+  "Provide honest feedback, clear expectations, and steady encouragement - without hype or judgment.",
+  "Keep medication decisions with you and your prescribing clinician while supporting the habits and training within our coaching scope.",
 ];
 
 export default function AboutPage() {
   return (
     <>
       <Navigation />
-      <main className="bg-brand-paper pt-20">
+      <main id="main-content" tabIndex={-1} className="bg-brand-paper pt-20">
         <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
           <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:gap-24">
             <div>
-              <p className="editorial-label">About GLP GlowUp</p>
-              <h1 className="text-balance mt-5 font-serif text-5xl font-medium leading-[0.98] tracking-[-0.05em] text-brand-dark md:text-7xl">
-                Coaching built at the intersection of clinical insight and real-world performance.
+              <p className="editorial-label">Why GLP GlowUp Exists</p>
+              <h1 className="text-balance mt-5 font-serif text-[clamp(2.8rem,7vw,4.8rem)] font-medium leading-[0.98] tracking-[-0.05em] text-brand-dark">
+                A more complete kind of support for your GLP journey.
               </h1>
               <p className="mt-8 max-w-2xl text-xl leading-relaxed text-brand-muted">
-                GLP GlowUp was created for people who want more than a lower number on the scale. The work centers on
-                strength, body composition, movement quality, and the systems that make progress easier to sustain.
+                GLP GlowUp was created after seeing a growing gap in GLP care: people were losing weight, but many had
+                no clear plan to protect their muscle, rebuild strength, or sustain their progress. This program brings
+                those missing pieces together through personalized coaching and genuine support.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <ButtonLink href={shortFitUrl} size="lg">
-                  Apply for Coaching
+                  {primaryCtaLabel}
                 </ButtonLink>
                 <ButtonLink href="/#programs" size="lg" variant="secondary">
-                  View Programs
+                  Explore Programs
                 </ButtonLink>
               </div>
             </div>
@@ -63,25 +65,29 @@ export default function AboutPage() {
         <section className="border-y border-brand-line bg-brand-light px-4 py-20 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-24">
             <div>
-              <p className="editorial-label">Founder credentials</p>
+              <p className="editorial-label">Meet Your Coach</p>
               <h2 className="text-balance mt-5 font-serif text-4xl font-medium tracking-[-0.04em] text-brand-dark md:text-5xl">
                 Rocco Gervasi, DPT, CSCS, VRC
               </h2>
             </div>
             <div className="space-y-6 text-lg leading-relaxed text-brand-muted">
               <p>
-                Rocco brings a physical therapy and strength-and-conditioning perspective to body transformation. His
-                coaching lens considers how a person moves, trains, recovers, and follows through, not only what the
-                scale reports.
+                Rocco combines doctorate-level expertise in physical therapy with more than 30 years of strength and
+                conditioning, movement analysis, and real-world coaching to deliver a private, highly personalized
+                body composition experience - designed to help you lose fat, preserve lean muscle, move better, and
+                build results that last.
               </p>
               <p>
-                That perspective is especially relevant during GLP-1-supported weight loss, when changes in appetite,
-                energy, schedule, and confidence can make a generic fitness plan difficult to apply.
+                As GLP medications became more common, Rocco noticed that many people were receiving support for
+                medication and weight loss but very little guidance for strength training, protein, movement,
+                recovery, or long-term independence.
               </p>
               <p>
-                GLP GlowUp is coaching, not medication management. Rocco works alongside the decisions clients make
-                with their qualified healthcare professionals and focuses on the training, nutrition habits, movement,
-                and accountability within the coaching scope.
+                That gap became the reason for GLP GlowUp. The purpose is not simply to help you weigh less, but to
+                help you become stronger, healthier, more capable, and better prepared to maintain the life you are
+                working hard to create. Medication decisions remain with you and your prescribing clinician; GLP
+                GlowUp focuses on training, nutrition habits, movement, recovery, and accountability within the
+                coaching scope.
               </p>
             </div>
           </div>
@@ -91,13 +97,14 @@ export default function AboutPage() {
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-10 border-b border-brand-line pb-12 lg:grid-cols-2 lg:items-end">
               <div>
-                <p className="editorial-label">The coaching philosophy</p>
+                <p className="editorial-label">How Rocco Coaches</p>
                 <h2 className="text-balance mt-5 font-serif text-4xl font-medium tracking-[-0.04em] text-brand-dark md:text-6xl">
-                  High standards without a one-size-fits-all system.
+                  High standards, personalized to the person in front of me.
                 </h2>
               </div>
               <p className="max-w-xl text-lg leading-relaxed text-brand-muted lg:justify-self-end">
-                The plan should be specific enough to create direction and flexible enough to survive an actual week.
+                You deserve a plan that gives you clear direction while still making room for your body, schedule,
+                responsibilities, and real life.
               </p>
             </div>
             <div className="grid md:grid-cols-2">
@@ -119,9 +126,11 @@ export default function AboutPage() {
             <div className="flex gap-5 border-b border-white/15 pb-8 md:border-b-0 md:border-r md:pb-0 md:pr-10">
               <MapPin aria-hidden="true" className="mt-1 h-6 w-6 flex-none text-brand-accent-soft" />
               <div>
-                <h2 className="font-serif text-3xl font-semibold">Philadelphia & South Jersey</h2>
+                <h2 className="font-serif text-3xl font-semibold">
+                  In-Person Coaching in Philadelphia & South Jersey
+                </h2>
                 <p className="mt-3 leading-relaxed text-white/65">
-                  In-person and hybrid coaching is available across the stated local service area, generally within a
+                  In-person and hybrid coaching is available throughout the local service area, generally within a
                   30-mile radius of Philadelphia, Cherry Hill, Moorestown, and Haddonfield.
                 </p>
               </div>
@@ -129,10 +138,10 @@ export default function AboutPage() {
             <div className="flex gap-5 md:pl-10">
               <Monitor aria-hidden="true" className="mt-1 h-6 w-6 flex-none text-brand-accent-soft" />
               <div>
-                <h2 className="font-serif text-3xl font-semibold">Remote coaching</h2>
+                <h2 className="font-serif text-3xl font-semibold">Remote Coaching</h2>
                 <p className="mt-3 leading-relaxed text-white/65">
-                  Foundation provides the same strategic coaching framework for clients outside the local area without
-                  requiring in-person appointments.
+                  Foundation gives you the same personalized strategy, weekly guidance, and ongoing support from
+                  outside the local area without requiring in-person appointments.
                 </p>
               </div>
             </div>
@@ -142,17 +151,21 @@ export default function AboutPage() {
         <section className="bg-brand-accent px-4 py-20 text-white sm:px-6 lg:px-8">
           <div className="mx-auto flex max-w-6xl flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-white">A selective next step</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-white">Start With a Conversation</p>
               <h2 className="text-balance mt-4 max-w-3xl font-serif text-4xl font-medium tracking-[-0.04em] md:text-5xl">
-                If the philosophy fits, tell us what support would make the biggest difference.
+                Tell us where you are and what kind of support would help most.
               </h2>
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/80">
+                Share your goals, your current challenges, and what you hope to feel or accomplish. We will help you
+                identify the most appropriate next step.
+              </p>
             </div>
             <ButtonLink
               href={shortFitUrl}
               size="lg"
               className="shrink-0 border-white bg-white text-brand-dark shadow-none hover:bg-brand-light"
             >
-              Apply for Coaching
+              {primaryCtaLabel}
             </ButtonLink>
           </div>
         </section>
