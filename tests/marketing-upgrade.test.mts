@@ -55,6 +55,7 @@ test("all actionable CTAs share one approved label and the package inquiries use
 
 test("security headers and the exact production-host redirect are configured without affecting previews", async () => {
   const config = await read("../next.config.ts");
+  const layout = await read("../src/app/layout.tsx");
 
   assert.match(config, /Content-Security-Policy/);
   assert.match(config, /form-action 'none'/);
@@ -65,9 +66,22 @@ test("security headers and the exact production-host redirect are configured wit
   assert.match(config, /Permissions-Policy/);
   assert.match(config, /Strict-Transport-Security/);
   assert.doesNotMatch(config, /preload/i);
+  assert.match(config, /process\.env\.CONTEXT\s*===\s*["']deploy-preview["']/);
+  assert.match(config, /X-Robots-Tag[\s\S]*noindex,\s*nofollow/);
+  assert.match(layout, /process\.env\.CONTEXT\s*===\s*["']deploy-preview["']/);
+  assert.match(layout, /index:\s*!isDeployPreview/);
+  assert.match(layout, /follow:\s*!isDeployPreview/);
   assert.match(config, /type:\s*["']host["'][\s\S]*glp-glowup-website\.netlify\.app/);
   assert.match(config, /https:\/\/glpglowups\.com\/:path\*/);
-  assert.doesNotMatch(config, /deploy-preview|netlify\.app\.\*/i);
+  assert.doesNotMatch(config, /deploy-preview-\d+--|netlify\.app\.\*/i);
+});
+
+test("standalone desktop and footer navigation links provide 44px minimum targets", async () => {
+  const navigation = await read("../src/components/navigation.tsx");
+  const footer = await read("../src/components/site-footer.tsx");
+
+  assert.match(navigation, /min-h-11[^"']*items-center/);
+  assert.match(footer, /min-h-11[^"']*items-center/);
 });
 
 test("structured data escapes less-than signs and policy section numbering never renders 010", async () => {

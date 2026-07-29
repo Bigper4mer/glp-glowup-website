@@ -25,17 +25,26 @@ export function SiteFooter() {
             <h2 className="mb-6 text-sm font-semibold uppercase tracking-[0.14em] text-white">Explore</h2>
             <ul className="space-y-4">
               <li>
-                <Link href="/#programs" className="text-white/60 hover:text-white transition-colors">
+                <Link
+                  href="/#programs"
+                  className="inline-flex min-h-11 items-center text-white/60 transition-colors hover:text-white"
+                >
                   Program Options
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-white/60 hover:text-white transition-colors">
+                <Link
+                  href="/about"
+                  className="inline-flex min-h-11 items-center text-white/60 transition-colors hover:text-white"
+                >
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-white/60 hover:text-white transition-colors">
+                <Link
+                  href="/faq"
+                  className="inline-flex min-h-11 items-center text-white/60 transition-colors hover:text-white"
+                >
                   More FAQ
                 </Link>
               </li>

@@ -15,6 +15,8 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
+const isDeployPreview = process.env.CONTEXT === "deploy-preview";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -22,11 +24,11 @@ export const metadata: Metadata = {
     template: "%s | GLP GlowUp",
   },
   robots: {
-    index: true,
-    follow: true,
+    index: !isDeployPreview,
+    follow: !isDeployPreview,
     googleBot: {
-      index: true,
-      follow: true,
+      index: !isDeployPreview,
+      follow: !isDeployPreview,
       "max-image-preview": "large",
       "max-snippet": -1,
       "max-video-preview": -1,

@@ -77,7 +77,7 @@ test("every marketing inquiry CTA imports the canonical Short Fit URL", async ()
   }
 });
 
-test("SEO surfaces keep marketing indexable and omit the retired internal route", async () => {
+test("SEO surfaces keep production indexable, make deploy previews noindex, and omit the retired route", async () => {
   const sitemap = await readFile(new URL("../src/app/sitemap.ts", import.meta.url), "utf8");
   const robots = await readFile(new URL("../src/app/robots.ts", import.meta.url), "utf8");
   const layout = await readFile(new URL("../src/app/layout.tsx", import.meta.url), "utf8");
@@ -86,8 +86,10 @@ test("SEO surfaces keep marketing indexable and omit the retired internal route"
   assert.doesNotMatch(`${sitemap}\n${robots}\n${seo}`, /\/fit-form/);
   assert.match(robots, /allow:\s*["']\/["']/);
   assert.doesNotMatch(robots, /disallow:/);
-  assert.match(layout, /index:\s*true/);
-  assert.match(layout, /follow:\s*true/);
+  assert.match(layout, /process\.env\.CONTEXT\s*===\s*["']deploy-preview["']/);
+  assert.match(layout, /index:\s*!isDeployPreview/);
+  assert.match(layout, /follow:\s*!isDeployPreview/);
+  assert.match(seo, /\.\.\.\(robots\s*!==\s*undefined\s*\?\s*\{\s*robots\s*\}\s*:\s*\{\}\)/);
   assert.match(seo, /serviceUrl:\s*shortFitUrl/);
 });
 

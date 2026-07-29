@@ -73,7 +73,7 @@ export function Navigation() {
               key={link.name}
               href={link.href}
               className={cn(
-                "text-sm font-semibold transition-colors",
+                "inline-flex min-h-11 items-center text-sm font-semibold transition-colors",
                 showSolid ? "text-brand-dark hover:text-brand-accent" : "text-white/90 hover:text-white"
               )}
             >

@@ -40,7 +40,7 @@ export function buildPageMetadata({
     alternates: {
       canonical,
     },
-    robots,
+    ...(robots !== undefined ? { robots } : {}),
     openGraph: {
       title: ogTitle ?? title,
       description: ogDescription ?? description,

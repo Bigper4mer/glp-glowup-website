@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+const isDeployPreview = process.env.CONTEXT === "deploy-preview";
+
 const contentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
@@ -45,12 +47,22 @@ const securityHeaders = [
   },
 ];
 
+const responseHeaders = isDeployPreview
+  ? [
+      ...securityHeaders,
+      {
+        key: "X-Robots-Tag",
+        value: "noindex, nofollow",
+      },
+    ]
+  : securityHeaders;
+
 const nextConfig: NextConfig = {
   async headers() {
     return [
       {
         source: "/:path*",
-        headers: securityHeaders,
+        headers: responseHeaders,
       },
     ];
   },
