@@ -49,12 +49,12 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="relative mx-auto aspect-[3/4] w-full max-w-[470px] overflow-hidden shadow-[var(--shadow-lifted)] lg:ml-auto">
+            <div className="relative mx-auto aspect-[509/767] w-full max-w-[470px] overflow-hidden shadow-[var(--shadow-lifted)] lg:ml-auto">
               <Image
-                src="/images/rocco-gervasi-headshot.webp"
+                src="/images/rocco-gervasi-headshot-full.jpg"
                 alt="Rocco Gervasi, DPT, CSCS, VRC"
                 fill
-                className="object-cover"
+                className="object-contain"
                 sizes="(max-width: 1023px) 470px, 38vw"
                 loading="eager"
               />

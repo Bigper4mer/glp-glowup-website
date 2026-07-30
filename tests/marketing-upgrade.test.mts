@@ -122,3 +122,15 @@ test("accent call-to-action descriptions meet the approved high-contrast text tr
   assert.match(home, /max-w-2xl text-lg leading-relaxed text-white\/90/);
   assert.match(about, /max-w-2xl text-lg leading-relaxed text-white\/90/);
 });
+
+test("both founder portraits use the full original image without cover cropping", async () => {
+  const home = await read("../src/components/home-page.tsx");
+  const about = await read("../src/app/about/page.tsx");
+
+  for (const founderSurface of [home, about]) {
+    assert.match(founderSurface, /src=["']\/images\/rocco-gervasi-headshot-full\.jpg["']/);
+    assert.match(founderSurface, /aspect-\[509\/767\]/);
+    assert.match(founderSurface, /className=["']object-contain["']/);
+    assert.doesNotMatch(founderSurface, /rocco-gervasi-headshot\.webp/);
+  }
+});

@@ -298,12 +298,12 @@ export function HomePage() {
 
         <section className="bg-brand-paper px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.78fr_1.22fr] lg:gap-24">
-            <div className="relative mx-auto aspect-[3/4] w-full max-w-[430px] overflow-hidden shadow-[var(--shadow-soft)]">
+            <div className="relative mx-auto aspect-[509/767] w-full max-w-[430px] overflow-hidden shadow-[var(--shadow-soft)]">
               <Image
-                src="/images/rocco-gervasi-headshot.webp"
+                src="/images/rocco-gervasi-headshot-full.jpg"
                 alt="Rocco Gervasi, founder of GLP GlowUp"
                 fill
-                className="object-cover"
+                className="object-contain"
                 sizes="(max-width: 1023px) 430px, 34vw"
               />
             </div>
