@@ -134,3 +134,19 @@ test("both founder portraits use the full original image without cover cropping"
     assert.doesNotMatch(founderSurface, /rocco-gervasi-headshot\.webp/);
   }
 });
+
+test("the safety policy includes the approved emergency callouts", async () => {
+  const content = await read("../src/lib/site-content.ts");
+  const policies = await read("../src/app/policies/page.tsx");
+
+  for (const approvedText of [
+    "No Emergency Services",
+    "Our services are educational, coaching, and supportive in nature and are not a substitute for emergency medical care, emergency mental health services, diagnosis, or treatment. We do not monitor communications continuously and cannot guarantee an immediate response.",
+    "Medical Emergencies",
+    "If you believe you are experiencing a medical emergency, call 911 (or your local emergency services) immediately or go to the nearest emergency department. If you are unable to call, ask someone nearby to contact emergency services for you. This service does not provide emergency medical care or crisis intervention.",
+  ]) {
+    assert.match(content, new RegExp(approvedText.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+
+  assert.match(policies, /<h3[^>]*>\s*\{callout\.title\}\s*<\/h3>/);
+});

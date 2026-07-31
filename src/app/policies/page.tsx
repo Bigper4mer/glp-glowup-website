@@ -90,6 +90,21 @@ export default function PoliciesPage() {
                       </li>
                     ))}
                   </ul>
+                  {"callouts" in section && section.callouts?.length ? (
+                    <div className="mt-8 grid gap-4">
+                      {section.callouts.map((callout) => (
+                        <article
+                          key={callout.title}
+                          className="border border-brand-line bg-brand-light p-6 sm:p-7"
+                        >
+                          <h3 className="font-serif text-2xl font-semibold tracking-[-0.025em] text-brand-dark">
+                            {callout.title}
+                          </h3>
+                          <p className="mt-3 leading-relaxed text-brand-muted">{callout.body}</p>
+                        </article>
+                      ))}
+                    </div>
+                  ) : null}
                 </section>
               ))}
             </div>

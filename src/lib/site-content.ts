@@ -405,6 +405,16 @@ export const policySections = [
       "We do not prescribe medications, diagnose or treat medical conditions, or manage medication side effects.",
       "New, worsening, or concerning symptoms should be directed to your prescribing clinician or another appropriate medical provider.",
     ],
+    callouts: [
+      {
+        title: "No Emergency Services",
+        body: "Our services are educational, coaching, and supportive in nature and are not a substitute for emergency medical care, emergency mental health services, diagnosis, or treatment. We do not monitor communications continuously and cannot guarantee an immediate response.",
+      },
+      {
+        title: "Medical Emergencies",
+        body: "If you believe you are experiencing a medical emergency, call 911 (or your local emergency services) immediately or go to the nearest emergency department. If you are unable to call, ask someone nearby to contact emergency services for you. This service does not provide emergency medical care or crisis intervention.",
+      },
+    ],
   },
   {
     title: "Application Data & Privacy",
