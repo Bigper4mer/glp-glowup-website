@@ -64,6 +64,11 @@ function PackageCard({ tier }: { tier: (typeof packageTiers)[number] }) {
             {tier.title}
           </h3>
           <p className="shrink-0 text-right text-2xl font-semibold tracking-[-0.04em] text-brand-dark sm:text-3xl">
+            {tier.popularityLabel ? (
+              <span className="mb-1.5 block rounded-full bg-brand-accent px-1.5 py-0.5 text-[0.5rem] font-bold tracking-[0.06em] text-white">
+                {tier.popularityLabel}
+              </span>
+            ) : null}
             {tier.price}
             <span className="block text-xs font-medium tracking-normal text-brand-muted">
               per month

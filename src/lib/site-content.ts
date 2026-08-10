@@ -7,6 +7,7 @@ export type PackageTier = {
   title: string;
   subtitle: string;
   price: string;
+  popularityLabel?: string;
   featured?: boolean;
   bestFor: string;
   summary: string[];
@@ -102,6 +103,7 @@ export const packageTiers: PackageTier[] = [
     title: "Foundation",
     subtitle: "Remote Coaching",
     price: "$649",
+    popularityLabel: "MOST POPULAR",
     bestFor:
       "You want expert direction and accountability without adding frequent appointments to your schedule.",
     summary: [
