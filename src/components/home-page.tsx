@@ -133,14 +133,14 @@ export function HomePage() {
       <main id="main-content" tabIndex={-1}>
         <section aria-label="GLP GlowUp introduction" className="relative overflow-hidden bg-brand-dark">
           <div className="relative mt-0 h-[300px] w-full sm:h-[500px] md:h-[560px] lg:h-[min(100svh,980px)]">
-            <picture>
+            <picture className="block h-full w-full">
               <source media="(min-width: 1024px)" srcSet={desktopHeroSrcSet} />
               <source media="(max-width: 1023px)" srcSet={mobileHeroSrcSet} />
               <img
                 {...mobileHeroProps}
                 alt="GLP GlowUp body composition coaching artwork"
                 fetchPriority="high"
-                className="h-full w-full object-cover object-[center_28%] lg:object-[62%_center]"
+                className="h-full w-full object-cover object-[center_28%] lg:object-contain lg:object-center"
               />
             </picture>
           </div>
